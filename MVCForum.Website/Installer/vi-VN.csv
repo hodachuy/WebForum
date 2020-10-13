@@ -1,0 +1,407 @@
+﻿Activity.ActivityTitle,Hoạt động
+Activity.Badge,huy hiệu
+Activity.ProfileUpdated,đã cập nhật hồ sơ cá nhân
+Activity.UserAwardedBadge,đã được trao
+Activity.UserJoined,là thành viên mới trong diễn đàn
+Badge.AuthorMarkAsSolution.Desc,Huy hiệu này được trao cho người dùng khi họ đánh dấu người dùng khác đăng bài là giải pháp cho chủ đề của họ
+Admin,Admin
+Ajax.PleaseWait,Vui lòng chờ đợi...
+Badge.AuthorMarkAsSolution.Name,Câu hỏi của bạn đã được giải quyết
+Badge.BadegEnumNoClass,Loại enum huy hiệu {0} không có lớp tương ứng được chỉ định.
+Badge.FavouriteFirstPost.Name,Yêu thích đầu tiên
+Badge.FavouriteFirstPost.Desc,Bạn vừa chọn Yêu thích bài đăng đầu tiên của mình
+Badge.JediMaster.Name,Jedi Master
+Badge.JediMaster.Desc,Đã có hơn 50 bài đăng được đánh dấu là câu trả lời thành công
+Badge.MemberForAYear.Desc,Huy hiệu này được trao cho người dùng sau kỷ niệm năm đầu tiên của họ
+Badge.OneThousandPoints.Desc,Huy hiệu này được trao cho những người dùng đã nhận được 1000 điểm
+Badge.MemberForAYear.Name,Kỷ niệm đầu tiên
+Badge.Padawan.Desc,Đã có 10 bài viết trở lên được đánh dấu thành công là một câu trả lời
+Badge.OneThousandPoints.Name,1000 điểm
+Badge.Photogenic.Desc,Những điều nhỏ nhặt như tải ảnh hồ sơ lên sẽ khiến cộng đồng trở thành một nơi tốt đẹp hơn. Cảm ơn!
+Badge.Padawan.Name,Padawan
+Badge.Photogenic.Name,Photogenic
+Badge.PosterMarkAsSolution.Desc,Huy hiệu này được trao cho người dùng khi bài đăng của họ được đánh dấu là giải pháp cho một chủ đề
+Badge.PosterVoteUp.Desc,Huy hiệu này được trao cho người dùng sau khi họ nhận được phiếu bầu đầu tiên từ một người dùng khác
+Badge.PosterMarkAsSolution.Name,Lựa chọn bài tin làm câu trả lời
+Badge.PosterVoteUp.Name,Đã nhận được bình chọn đầu tiên
+Badge.PostMentionsUmbraco.Name,Umbraco Fan
+Badge.PostMentionsUmbraco.Desc,Huy hiệu này được trao cho người dùng đề cập đến Umbraco trong bài đăng mới nhất của họ
+Badge.TheGrouch.Name,The Grouch
+Badge.TheGrouch.Desc,Huy hiệu này được trao cho những người dùng đã bình chọn bài đăng của người dùng khác từ 10 lần trở lên
+Badge.UnknownBadge,Loại huy hiệu không xác định {0}
+Badge.UserVoteUp.Desc,Huy hiệu này được trao cho người dùng sau khi họ được bình chọn đầu tiên
+Badge.YourPostFavourited.Desc,You have one or more posts that have been Favourited by another member
+Badge.YourPostFavourited.Name,Bài đăng Yêu thích
+Badge.YourPostFavouritedTenTimes.Desc,One or more of your posts have been Favourited by 10 or more people
+Badge.UserVoteUp.Name,Bạn đã đưa ra bình chọn đầu tiên của mình
+Badge.YourPostFavouritedTenTimes.Name,Bài đăng được công nhận
+Badges.PageTitle,Huy hiệu
+Badges.AwardsPoints,Awards {0} points
+Buttons.Continue,Tiếp tục
+Buttons.ChangePassword,Đổi mật khẩu
+Badges.UnableToAward,Unable to award badges as badge collection is null for user {0}
+Buttons.CreatePost,Tạo bài mới
+Buttons.Edit,Chỉnh sửa
+Buttons.Report,Thống kê
+Buttons.LogOn,Đăng nhập
+Buttons.Save,Lưu
+Buttons.ResetPassword,Khôi phục mật khẩu
+Buttons.Send,Gửi
+Buttons.Search,Tìm kiếm
+Category.AllCategories,TẤT CẢ DANH MỤC
+Category.CategoriesSideHeading,Danh mục
+Category.NoDiscussions,Hiện tại không có chủ đề nào trong danh mục này
+Category.MostRecent,Gần đây nhất:
+Confirmation.DeleteMembersPosts,Bạn có chắc chắn xóa tất cả bài đăng và chủ đề của các thành viên
+Category.SubCategoriesHeading,Danh mục con trong
+Confirmation.SrubAndBan,Bạn có chắc muốn thực hiện thao tác này? Hành động này sẽ xóa tất cả bài tin và cấm tài khoản này hoạt động
+Date.DaysAgo,{0} ngày trước
+Date.JustNow,ngay lúc này
+Date.HoursAgo,{0} giờ trước
+Date.OneHourAgo,1 giờ trước
+Date.MinutesAgo,{0} phút trước
+Date.WeeksAgo,{0} tuần trước
+Date.OneMinuteAgo,1 phút trước
+Date.Yesterday,hôm qua
+Editor.NeedHelp,Cần trợ giúp thêm?
+Error.EmailIsBanned,Địa chỉ email hoặc tên miền bạn đang sử dụng đã bị cấm
+Error.WrongAnswerRegistration,Lỗi phát sinh với câu trả lời của bạn. Vui lòng thử lại
+Errors.GenericMessage,Xin lỗi, đã xảy ra lỗi
+Errors.NoPermission,Bạn không có quyền truy cập hành động này
+Errors.NoAccess,Không truy cập
+Errors.NoPermissionPolls,Chủ để đã được tạo. Bạn không có quyền tạo cuộc thăm dò ý kiến cho chủ đề nay
+Errors.NothingToDisplay,Không có gì hiển thị
+Facebook.Error.EnabledButNotAddedKeys,Bạn đã bật đăng nhập Facebook nhưng chưa thêm AppId hoặc khóa Bí mật của mình vào forum.config
+Favourites.PageTitle,Mục Yêu thích
+Favourites.NoMemberFavourites,Bạn chưa được gắn dấu sao bất kỳ bài đăng nào
+File.SuccessfullyDeleted,Tệp đã được xóa
+Following.Categories,Danh mục bạn đang theo dõi
+Following.PageTitle,Chủ đề &amp; Danh mục
+Following.Topics,Chủ đề bạn đang theo dõi
+Home.LatestDiscussions,CHỦ ĐỀ MỚI NHẤT
+Google.Error.EnabledButNotAddedKeys,Bạn đã bật đăng nhập xã hội nhưng chưa thêm id Google và khóa bí mật trong forum.config
+Home.Rss,Rss
+Language.Change,Thay đổi ngôn ngữ
+Language.Changed,Ngôn ngữ đã thay đổi
+Layout.Nav.Activity,Hoạt động
+Layout.CreateButton,Tạo chủ đề mới
+Layout.Nav.Badges,Huy hiệu
+Layout.Nav.Admin,Trang Quản trị viên
+Layout.Nav.Home,Trang chủ
+Layout.Nav.Leaderboard,Bảng xếp hạng
+Layout.Nav.Logon,Đăng nhập
+Layout.Nav.Register,Đăng ký
+Layout.PoweredBy,Powered by
+Layout.Nav.Utilities,Tiện ích
+Leaderboard.LeaderboardTitle,Global Leaderboard
+Leaderboard.ThisWeeksStars,This Weeks Stars
+Leaderboard.ThisYearsStars,This Years Rock Stars
+LogOn.LogOff,Đăng xuất
+LogOn.LogOn,Đăng nhập
+Member.HasNewPrivateMessages,Bạn có tin nhắn mới
+Member.ProfileUpdated,Cập nhật Hồ sơ
+Members.Admin,Admin
+Members.AlreadyRegistered,Bạn đã đăng kí? Tại sao bạn muốn làm điều đó một lần nữa?
+Members.BanUser,Cấm User
+Members.CantUnlock,Người dùng không tồn tại - không thể mở khóa
+Members.ChangePassword.Error,Mật khẩu hiện tại không đúng hoặc mật khẩu mới không hợp lệ
+Members.ChangePassword.Success,Mật khẩu đã được thay đổi
+Members.ChangePassword.Link,Nhấp vào đây nếu bạn muốn {0}
+Members.ChangePassword.Text,Mật khẩu mới được yêu cầu có độ dài tối thiểu là {0} ký tự.
+Members.ChangePassword.Title,Đổi mật khẩu.
+Members.DateJoined,Ngày tham gia
+Members.DeleteAllPosts,Xóa tất cả bài đăng
+Members.EditMember,Chỉnh sửa thành viên
+Members.EditProfile,Chỉnh sửa Hồ sơ
+Members.Errors.DuplicateEmail,Tên người dùng cho địa chỉ e-mail này đã tồn tại. Vui lòng nhập một địa chỉ e-mail khác.
+Members.Errors.DuplicateUserName,Tên người dùng đã tồn tại. Vui lòng nhập tên khác.
+Members.Errors.InvalidAnswer,Nội dung trả lời để lấy mật khẩu không đúng. Vui lòng thử lại và kiểm tra lần nữa.
+Members.Errors.InvalidEmail,Địa chỉ e-mail cung cấp không hợp lệ. Vui lòng thử lại.
+Members.Errors.InvalidPassword,Mật khẩu được cung cấp không hợp lệ. Vui lòng nhập mật khẩu hợp lệ.
+Members.Errors.InvalidQuestion,Câu hỏi lấy lại mật khẩu được cung cấp không hợp lệ. Vui lòng kiểm tra giá trị và thử lại.
+Members.Errors.InvalidUserName,Tên người dùng được cung cấp không hợp lệ. Vui lòng kiểm tra giá trị và thử lại.
+Members.Errors.LogonGeneric,Không thể đăng nhập.
+Members.Errors.PasswordAttemptsExceeded,Đã vượt quá tối đa số lần thử mật khẩu.
+Members.Errors.PasswordIncorrect,Người dùng hoặc mật khẩu được cung cấp không chính xác.
+Members.Errors.ProviderError,Cung cấp xác thực đã xảy ra lỗi. Vui lòng xác nhận và thử lại. Nếu sự cố vẫn tiếp diễn, hãy liên hệ với quản trị viên hệ thống của bạn.
+Members.Errors.Unknown,An unknown error occurred. Please verify your entry and try again. If the problem persists please contact your system administrator.
+Members.Errors.UserLockedOut,Người dùng đã bị khóa.
+Members.Errors.UserNotApproved,Người dùng chưa được chấp thuận.
+Members.Errors.UserRejected,The user creation request has been canceled. Please verify your entry and try again. If the problem persists please contact your system administrator.
+Members.ForgotPassword.Email,Bạn đã yêu cầu đặt lại mật khẩu của mình vào {0}. Mật khẩu mới của bạn ở bên dưới
+Members.ForgotPassword.ErrorMessage,Lỗi khi đặt lại mật khẩu
+Members.ForgotPassword.Link,Quên mật khẩu?
+Members.ForgotPassword.Subject,Đặt lại mật khẩu
+Members.ForgotPassword.SuccessMessage,Mật khẩu mới đã được gửi qua email cho bạn
+Members.ForgotPassword.Title,Quên mật khẩu
+Members.Label.Age,Tuổi
+Members.Label.Comment,Bình luận
+Members.Label.ConfirmNewPassword,Xác nhận mật khẩu mới
+Members.Label.ConfirmPassword,Xác nhận mật khẩu
+Members.Label.CurrentPassword,Mật khẩu hiện tại
+Members.Label.DateJoined,Ngày tham gia
+Members.Label.DisableEmailNotifications,Tắt thông báo qua email
+Members.Label.EmailAddress,Địa chỉ email (Hệ thống sử dụng Gravatar để hiển thị ảnh Đại diện của bạn)
+Members.Label.EmailAddressBlank,Nhập địa chỉ email của bạn
+Members.Label.Facebook,Trang Facebook
+Members.Label.Location,Địa chỉ
+Members.Label.NewPassword,Mật khẩu mới
+Members.Label.Password,Mật khẩu
+Members.Label.Roles,Vai trò
+Members.Label.RememberMe,Ghi nhớ?
+Members.Label.Twitter,Twitter Url
+Members.Label.Signature,Chữ ký
+Members.Label.UploadNewAvatar,Tải lên hình ảnh hồ sơ
+Members.Label.UserIsApproved,Người dùng được chấp thuận
+Members.Label.Username,Tài khoản
+Members.Label.Users,Người dùng
+Members.Label.Website,Website
+Members.LoginOrText,hoặc
+Members.LogonFacebookButton,Đăng nhập bằng Facebook
+Members.LogonGoogleButton,Đăng nhập bằng Google
+Members.LogOnMessage,Vui lòng nhập tên đăng nhập và mật khẩu của bạn. Hoặc {0} nếu bạn không có tài khoản
+Members.LogonMicrosoftButton,Đăng nhập bằng Microsoft
+Members.MemberEmailAuthorisation.EmailBody,Bạn đã đăng ký trên {0} - Để tiếp tục, bạn phải xác nhận địa chỉ email của mình bằng cách nhấp vào liên kết bên dưới. {1}
+Members.MemberEmailAuthorisation.Subject,Xác nhận Email
+Members.MemberEmailAuthorisationNeeded,Chúng tôi đã gửi cho bạn một email xác nhận - vui lòng nhấp vào liên kết xác nhận trong email của bạn để chấp thuận tài khoản của bạn.
+Members.MemberEmailAuthorisationNeededMessage,Nhấp vào liên kết trong email xác nhận để phê duyệt tài khoản của bạn.
+Members.MemberEmailAuthorisationResend,Gửi lại Email xác nhận
+Members.NewMemberRegistered,Thành viên mới đã đăng ký trên {0} ({1})
+Members.MessageMe,Nhắn tin cho tôi
+Members.NewMemberSubject,Thành viên mới đã đăng ký
+Members.NowApproved,Tài khoản của bạn hiện đã được chấp thuận - Cảm ơn bạn
+Members.NowBanned,Thành viên hiện đã bị cấm
+Members.NowLoggedIn,Bạn đã đăng nhập
+Members.NowLoggedOut,Bạn đã đăng xuất
+Members.NowRegistered,Bạn hiện đã đăng ký
+Members.NowRegisteredNeedApproval,Bây giờ bạn đã đăng ký. Đang chờ duyệt từ quản trị viên.
+Members.NowUnBanned,Thành viên hiện KHÔNG bị cấm
+Members.Points,Điểm
+Members.Profile.Age,Tuổi:
+Members.Profile.Badges,Huy hiệu
+Members.Profile.DiscussionActivity,Chủ đề thảo luận
+Members.Profile.Facebook,Facebook:
+Members.Profile.IsSocialAccount,Tài khoản mạng xã hội
+Members.Profile.Joined,Đã tham gia:
+Members.Profile.LastOnline,Trực tuyến lần cuối
+Members.Profile.Location,Địa chỉ:
+Members.Profile.Points,Điểm:
+Members.Profile.Posts,Tin:
+Members.Profile.Twitter,Twitter
+Members.Profile.Website,Website
+Members.ProfileTitle,Hồ sơ
+Members.Register,Đăng ký
+Members.ResetPassword.EmailText,Yêu cầu đặt lại mật khẩu của bạn đã được thực hiện trên {0}. Để đặt lại mật khẩu của bạn, hãy làm theo liên kết bên dưới. Nếu bạn không thực hiện yêu cầu này thì vui lòng bỏ qua email này. Không cần thực hiện thêm hành động nào và mật khẩu của bạn sẽ không bị thay đổi.
+Members.ResetPassword.Error,Đã xảy ra lỗi khi đặt lại mật khẩu của bạn. Vui lòng thử lại.
+Members.ResetPassword.InvalidToken,Yêu cầu này không hợp lệ hoặc đã hết hạn. Vui lòng yêu cầu đặt lại mật khẩu một lần nữa.
+Members.ResetPassword.SuccessText,Mật khẩu của bạn đã được thay đổi.
+Members.ResetPassword.Text,Email đã được gửi với thông tin chi tiết về cách đặt lại mật khẩu của bạn.
+Members.ResetPassword.Title,Đã gửi yêu cầu đặt lại mật khẩu
+Members.SearchMembers,Tìm kiếm thành viên
+Members.SrubAndBan,Xóa và Cấm thành viên
+Members.SuccessfulSrub,Tất cả hoàn thành
+Members.UnableToGetEmailAddress,Không thể truy cập vào địa chỉ email của bạn - vui lòng kiểm tra quyền của bạn
+Members.UnBanUser,Bỏ cấm người dùng
+Members.Users,Người dùng
+Microsoft.Error.EnabledButNotAddedKeys,Bạn đã bật đăng nhập Microsoft nhưng chưa thêm AppId hoặc khóa Bí mật của mình vào forum.config
+Moderate.AwaitingModeration,Bài viết của bạn hiện đang chờ kiểm duyệt. Sau khi được chấp thuận, nó sẽ xuất hiện trên trang web
+Moderate.NavText,Đang xử lý Tin/Chủ đề
+Moderate.NothingHere,Không có gì ở đây vào lúc này
+Moderate.Posts,Bài tin
+Moderate.Title,Kiểm duyệt
+Moderate.Topics,Chủ đề
+Notification.Subscribe,Theo dõi
+Notification.UnSubscribe,Hủy theo dõi
+Notifications.NoActiveMembers,Không có ai trực tuyến vào lúc này
+PM.AboutToExceedInboxSizeBody,Bạn sắp vượt quá hạn mức cho phép tin nhắn đến hộp thư riêng tư
+PM.AboutToExceedInboxSizeSubject,Cho phép nhận Tin nhắn riêng tư
+PM.BackToInbox,Trở về hộp thư
+PM.Block,Khóa
+PM.Blocked,Đã khóa
+PM.BlockedMessage,Không thể gửi tin nhắn
+PM.Create,Tạo
+PM.CreatePrivateMessage,Tạo tin nhắn riêng tư
+PM.Date,Ngày
+PM.Delete,Xóa
+PM.From,Từ:
+PM.LastActivity,Hoạt động gần đây
+PM.MemberIsOnline,Trực tuyến
+PM.MessageSent,Gửi tin nhắn
+PM.MessageSubject,Tiêu đề
+PM.NewPrivateMessage,Tin nhắn riêng tư mới
+PM.NewPrivateMessageBody,{0} vừa gửi cho bạn một tin nhắn riêng tư.
+PM.NewPrivateMessageSubject,Tin nhắn riêng tư mới
+PM.NoMessages,Bạn hiện không có bất kỳ tin nhắn riêng tư nào
+PM.OriginalMessage,Tin nhắn gốc
+PM.PrivateMessages,Tin nhắn riêng tư
+PM.Read,Đọc
+PM.ReceivedItemsOverCapcity,{0} đã vượt quá kích thước hộp thư đến - không thể gửi tin nhắn
+PM.ReceivedPrivateMessages,Đã nhận tin nhắn riêng tư
+PM.RecipientUsername,Tên người nhận
+PM.Reply,Phản hồi
+PM.Send,Gửi
+PM.SendingToQuickly,Bạn đang gửi tin nhắn quá nhiều lần trong cùng một lúc
+PM.Sent,Gửi:
+PM.SentItemsOverCapcity,Các tin đã gửi của bạn quá dung lượng - hãy xóa tin nhắn để có thể gửi
+PM.SentPrivateMessages,Gửi tin nhắn riêng tư
+PM.ShowMore,Hiển thị thêm tin nhắn
+PM.ShowMoreLoading,Đang tải...
+PM.Subject,Chủ đề
+PM.TalkToSelf,Tự nói chuyện với chính mình thì hơi kỳ. phải không?
+PM.Title,Tin nhắn:
+PM.To,Tới
+PM.UnableFindMember,Không thể tìm thấy thành viên đó
+Points.ThisWeeksHighEarners,Thành viên tích cực
+Poll.Button.Create,Tạo cuộc thăm dò ý kiến
+Poll.Button.Remove,Xóa cuộc thăm dò ý kiến
+Poll.Button.Vote,Gửi bình chọn
+Poll.Placeholder.TypeAnswerHere,Nhập câu trả lời thăm dò ý kiến tại đây
+Post.Attach,Đính kèm
+Post.AttachedFiles,Tệp tin đính kèm
+Post.Browse,Duyệt qua...
+Post.Delete,Xóa
+Post.DeleteConfirmation,Bạn có chắc chắn muốn xóa?
+Post.Deleted,Bài đăng đã bị xóa
+Post.Edit,Chỉnh sửa
+Post.Favourite,Mục Yêu thích
+Post.Favourited,Được yêu thích
+Post.FilesUploaded,Tệp tin được tải lên thành công
+Post.IsSolution,Là giải pháp
+Post.Trusted,Đáng tin cậy
+Post.TrustedUser,Người dùng ủy thác
+Post.Label.IsStickyTopic,Là chủ đề hấp dẫn
+Post.Label.LockTopic,Khóa chủ đề
+Post.label.TopicCategory,Danh mục chủ đề
+Post.Label.TopicName,Tên chủ đề
+Post.LastEdited,Chỉnh sửa gần đây
+Post.LikedBy,Thích bởi
+Post.MemberIsOnline,Trực tuyến
+Post.Move,Di chuyển
+Post.Move.Description,Di chuyển bài đăng đến một chủ đề hiện có hoặc tạo một chủ đề mới.
+Post.Move.Label.NewTopicTitle,Tạo chủ đề mới
+Post.Move.Label.ReplyToPosts,Di chuyển câu trả lời và Trích dẫn
+Post.Move.Label.Topic,Chủ đề
+Post.Move.PostTitle,Di chuyển bài đăng
+Post.Notification.NewPosts,Một bài đăng mới đã được tạo trong chủ đề {0}
+Post.Notification.Subject,Bài đăng mới trên
+Post.Options,Xem tiện ích của bài đăng
+Post.OthersLiked,và {0} người khác
+Post.Permalink,Đường dẫn liên kết
+Post.PleaseWait,Vui lòng chờ đợi...
+Post.Points,Điểm
+Post.PostedThis,đăng bài này
+Post.Posts,Bài đăng
+Post.Quote,Trả lời kèm trích dẫn
+Post.Reply,Trả lời
+Post.ReplyingTo,Trả lời tới:
+Post.Report,Báo cáo
+Post.Updated,Đã cập nhật bài đăng
+Post.Upload,Tải tệp tin
+Post.UploadBannedFileExtension,Tệp tin này không được phép
+Post.UploadFileTooBig,Kích thước tệp tin quá lớn
+Post.VotedDown,Không thích
+Post.VoteDown,Không thích
+Post.VotedUp,Thích
+Post.VoteUp,Thích
+PostedIn.PageTitle,Chủ đề và Bài đăng tham gia
+PostEdit.EditedBy,Chỉnh sửa bởi
+PostEdit.EditedVersion,Đã chỉnh sửa
+PostEdit.None,Bài đăng này chưa có lịch sử chỉnh sửa
+PostEdit.OriginalVersion,Phiên bản gốc
+PostEdit.Panel.Name,Bài đăng lịch sử chỉnh sửa
+PostFilter.Newest,Mới nhất
+PostFilter.OrderBy,Sắp xếp:
+PostFilter.Standard,Phổ biến
+PostFilter.Votes,Bình chọn
+Report.Admin,Admin
+Report.MemberReport,Báo cáo thành viên
+Report.MemberReported,Đã báo cáo thành viên
+Report.PostReport,Báo cáo bài đăng
+Report.PostReported,Đã báo cáo bài đăng trong
+Report.Reason,Lý do
+Report.Report,Báo cáo
+Report.Reporter,Người báo cáo
+Report.ReportPostBy,Báo cáo bài đăng từ:
+Report.ReportSent,Gửi báo cáo
+Rss.Category.Description,Thảo luận mới nhất đang diễn ra trong danh mục {0}
+Rss.Category.Title,{0} Chủ đề
+Rss.LatestActivity.Description,Các chủ đề gần đây
+Rss.LatestActivity.Title,Thảo luận trên Diễn đàn gần đây
+Search.InTopic,Trong chủ đề
+Search.NoResults,Xin lỗi không tìm thấy
+Search.Results,Kết quả tìm thấy
+Search.Searching,Đang tìm kiếm
+Side.Search,Tìm kiếm
+Side.Search.Go,Tìm
+Side.Search.SearchFor,Tìm kiếm...
+SideBox.MyTools,Tiện ích
+Site.MvcForum,LawCoviet
+SlidePanel.CloseConfirmation,Bạn có chắc chắn muốn đóng không?
+Spam.FloodTestFailed,Bạn đang đăng tin quá nhiều lần trong cùng một lúc
+Stats.FooterActiveUsersText,Thành viên đang trực tuyến:
+Stats.FooterMainStatText,{0} thành viên đã đăng {1} bài viết trong {2} chủ đề
+Stats.LatestMembers,Thành viên gần đây:
+StopWord.Error,Bạn đang nhập có chứa từ hoặc đường dẫn không được phép trên trang web này
+SubNav.Favourites,Mục Yêu thích
+SubNav.Following,Mục theo dõi
+SubNav.Latest,Mới nhất
+SubNav.PostedIn,Bài đăng tham gia
+SubscribedCats.NothingToShow,Bạn không theo dõi Danh mục nào
+SubscribedTopics.NothingToShow,Bạn không theo dõi Chủ đề nào
+Tags.PopularTags,Tags Phổ biến
+Tags.NoCreatePermission,Bạn không có quyền tạo mới tags
+Tasks.MarkAsSolutionReminderJob.EmailBody,Chủ đề của bạn {0} trên {1} có {2} câu trả lời nhưng vẫn chưa được đánh dấu là đã giải quyết. Vui lòng kiểm tra lại để xem có câu trả lời nào phù hợp không và đánh dấu chúng là giải pháp nếu có.
+Tasks.MarkAsSolutionReminderJob.Subject,Bài tin của bạn trên {0}
+TermsAndConditions.Label.Agree,Tôi đã đọc và đồng ý với các Điều khoản và Điều kiện của trang web
+TermsAndConditions.Label.AgreeError,Bạn phải đồng ý với các Điều khoản và Điều kiện
+TermsAndConditions.PageTitle,Đồng ý với các Điều khoản và Điều kiện
+TinyMCE.InsertImage.Browse,Duyệt qua
+TinyMCE.InsertImage.ButtonClose,Đóng
+TinyMCE.InsertImage.ButtonOk,Kết thúc
+TinyMCE.InsertImage.ButtonTitle,Thêm hình ảnh
+TinyMCE.InsertImage.EnterValidUrl,Vui lòng nhập url hợp lệ
+TinyMCE.InsertImage.ExternalImage,Hình ảnh bên ngoài
+TinyMCE.InsertImage.ImageDescription,Mô tả hình ảnh
+TinyMCE.InsertImage.LabelUploadImage,Tải hình ảnh
+TinyMCE.InsertImage.MaxFileSize,Kích thước hình ảnh tối đa 2 MB
+TinyMCE.InsertImage.OnlyImages,Chỉ có thể tải lên ảnh JPEG, PNG và GIF
+TinyMCE.InsertImage.SelectFile,Vui lòng lựa chọn tệp
+Topic.AlreadyAnswered,Những câu hỏi này có thể đã có câu trả lời của bạn
+Topic.Category,Danh mục
+Topic.Choose,Chọn chủ đề hiện có
+Topic.Comment,Câu trả lời
+Topic.Comments,Danh sách câu trả lời
+Topic.CommentsDetails,Bình luận
+Topic.CreateDiscussion,Tạo chủ đề
+Topic.Deleted,Chủ đề đã xóa
+Topic.DiscussionTaggedWith,Thảo luận được gắn thẻ với:
+Topic.HotTopics,Chủ đề HOT
+Topic.InCategory,trong
+Topic.IsLocked,Chủ đề đã khóa
+Topic.IsPoll,Thăm dò ý kiến
+Topic.IsSolved,Chủ đề đã có giải pháp
+Topic.IsSticky,Chủ đề hấp dẫn
+Topic.Label.Category,Chọn danh mục
+Topic.Label.PollCloseAfterDays,Đóng cuộc thăm dò ý kiến sau số ngày được chỉ định? Sau 0 ngày sẽ đóng
+Topic.Label.SubscribeToTopic,Nhận thông báo về tin phản hồi?
+Topic.Label.Tags,Thêm Tag
+Topic.Label.TopicTitle,Tiêu đề
+Topic.Label.UploadFiles,Tải lên tệp
+Topic.LastPost,Bài đăng mới
+Topic.LatestBy,Đăng từ:
+Topic.Notification.NewTopics,Một chủ đề hoặc tag đã được tạo trong danh mục {0}
+Topic.Notification.Subject,Thảo luận Mới trên
+Topic.OptionsHeading,Tùy chọn chủ đề
+Topic.PollClosed,Đã đóng
+Topic.ShowMorePosts,Hiên thị thêm bài đăng
+Topic.ShowMorePostsLoading,Đang tải bài viết...
+Topic.StartedBy,Bắt đầu {0} bởi {1}
+Topic.Subscribe,Theo dõi
+Topic.TagThisTopic,Gắn tag chủ đề này
+Topic.TitleFallBack,Chủ đề Thảo luận
+Topic.UnSubscribe,Hủy theo dõi
+Topic.Views,Lượt xem
+Topic.Votes,Lượt bình chọn
+Twitter.Error.EnabledButNotAddedKeys,Bạn đã bật đăng nhập xã hội nhưng chưa thêm id Twitter và khóa bí mật trong forum.config
+Post.Errors.NoInputPostContent,Vui lòng nhập nội dung bài viết
+Post.IsTrustedUser,Chuyên gia
