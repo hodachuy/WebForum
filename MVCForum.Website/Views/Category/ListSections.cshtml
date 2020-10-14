@@ -4,7 +4,6 @@
 @{
     Layout = null;
 }
-
 <div class="categoryindex">
    
     @foreach (var sectionItem in Model.OrderBy(x => x.Section.SortOrder))
@@ -12,22 +11,38 @@
         if (sectionItem.AllPermissionSets.Any())
         {
             <div class="panel panel-mvc">
-                <div class="panel-heading">@(sectionItem.Section.Name)</div>
-                <div class="panel-body">
-                        
-                    @foreach (var cat in sectionItem.AllPermissionSets.Keys)
-                    {
-                        var permissions = sectionItem.AllPermissionSets[cat];
+                <div class="col-md-12 panel-heading">
+                    <div class="col-md-7">
+                        <span>@(sectionItem.Section.Name.ToUpper())</span>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <span>Chủ đề/Bình luận</span>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <span>Bài viết cuối</span>
+                    </div>
+                    <div class="col-md-1 text-center">
+                        <a data-toggle="collapse" data-target="#collap-@sectionItem.Section.Id">
+                        </a>
+                    </div>
+                </div>
+                <div id="collap-@sectionItem.Section.Id" class="panel-collapse collapse in">
+                    <div class="panel-body">                       
+                        @foreach (var cat in sectionItem.AllPermissionSets.Keys)
+                        {
+                            var permissions = sectionItem.AllPermissionSets[cat];
 
-                        @Html.Partial("_Category", new CategoryViewModel {
-                            Category = cat.Category,
-                            LatestTopic = cat.MostRecentTopic,
-                            Permissions = permissions,
-                            PostCount = cat.PostCount,
-                            TopicCount = cat.TopicCount
-                        })
+                            @Html.Partial("_Category", new CategoryViewModel {
+                                Category = cat.Category,
+                                LatestTopic = cat.MostRecentTopic,
+                                Permissions = permissions,
+                                PostCount = cat.PostCount,
+                                TopicCount = cat.TopicCount
+                            })
 
-                    }
+                        }
+                    </div>
+
                 </div>
             </div>   
         }
