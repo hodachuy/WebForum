@@ -1,6 +1,7 @@
 ﻿namespace MvcForum.Core.Models
 {
     using Entities;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Used when listing Categories

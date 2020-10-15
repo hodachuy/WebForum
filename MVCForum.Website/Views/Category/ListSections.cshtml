@@ -4,29 +4,32 @@
 @{
     Layout = null;
 }
-<div class="categoryindex">
+<div class="row categoryindex">
    
     @foreach (var sectionItem in Model.OrderBy(x => x.Section.SortOrder))
     {
         if (sectionItem.AllPermissionSets.Any())
         {
-            <div class="panel panel-mvc">
-                <div class="col-md-12 panel-heading">
-                    <div class="col-md-7">
-                        <span>@(sectionItem.Section.Name.ToUpper())</span>
-                    </div>
-                    <div class="col-md-2 text-center">
-                        <span>Chủ đề/Bình luận</span>
-                    </div>
-                    <div class="col-md-2 text-center">
-                        <span>Bài viết cuối</span>
-                    </div>
-                    <div class="col-md-1 text-center">
-                        <a data-toggle="collapse" data-target="#collap-@sectionItem.Section.Id">
+            <div class="col-md-12 col-xs-12 panel panel-mvc">
+                <div class="col-md-12 col-xs-12 panel-heading">
+                    <span class="col-md-6 col-xs-10 font-weight-bold font-size-12">
+                        @(sectionItem.Section.Name.ToUpper())
+                    </span>
+                    <span class="col-md-1 hidden-xs text-center">
+
+                    </span>
+                    <span class="col-md-2 hidden-xs text-center font-size-11">
+                        Chủ đề / Bài viết
+                    </span>
+                    <span class="col-md-2 hidden-xs text-center font-size-11">
+                        Bài viết cuối
+                    </span>
+                    <span class="col-md-1 col-xs-2 text-center">
+                        <a data-toggle="collapse" data-target="#collapse-@sectionItem.Section.Id">
                         </a>
-                    </div>
+                    </span>
                 </div>
-                <div id="collap-@sectionItem.Section.Id" class="panel-collapse collapse in">
+                <div class="col-md-12 col-xs-12 panel-collapse collapse in pd-unset" id="collapse-@sectionItem.Section.Id">
                     <div class="panel-body">                       
                         @foreach (var cat in sectionItem.AllPermissionSets.Keys)
                         {
@@ -45,6 +48,7 @@
 
                 </div>
             </div>   
+
         }
     }
 

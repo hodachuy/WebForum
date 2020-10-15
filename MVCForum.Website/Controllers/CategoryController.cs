@@ -109,7 +109,27 @@
             {
                 var categoriesInSection = groupedCategories[dbSection.Id];
                 var allPermissionSets = ViewModelMapping.GetPermissionsForCategories(categoriesInSection, _roleService, loggedOnUsersRole, true);
+                foreach(var catSum in categoriesInSection)
+                {
+                    // mai chỉnh lại lấy bài post cuối về thời gian user
+                    var subCategories = _categoryService.GetAllDeepSubCategories(catSum.Category);
+                    if(subCategories.Count != 0)
+                    {
+                        catSum.TopicCount += subCategories.SelectMany(x => x.Topics).Count();
+                        catSum.PostCount += subCategories.SelectMany(x => x.Topics).SelectMany(x => x.Posts).Count();
+                        if(catSum.MostRecentTopic != null)
+                        {
+                            catSum.MostRecentTopic = catSum.MostRecentTopic.LastPost.DateCreated >
+                                                    subCategories.SelectMany(x => x.Topics).OrderByDescending(t => t.LastPost.DateCreated).FirstOrDefault().LastPost.DateCreated ?
+                                                    catSum.MostRecentTopic : subCategories.SelectMany(x => x.Topics).OrderByDescending(t => t.LastPost.DateCreated).FirstOrDefault(); // TODO - Should this be a seperate call?
 
+                        }
+                        else
+                        {
+                            catSum.MostRecentTopic = subCategories.SelectMany(x => x.Topics).OrderByDescending(t => t.LastPost.DateCreated).FirstOrDefault();
+                        }
+                    }
+                }
                 allSections.Add(new SectionListViewModel
                 {
                     Section = dbSection,

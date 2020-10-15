@@ -9,9 +9,10 @@
             browser_spellcheck: true,
             plugins: [
                 "autosave link image lists hr anchor forumimageinsert",
-                "wordcount visualblocks visualchars code fullscreen media nonbreaking"
+                "wordcount visualblocks visualchars code fullscreen media nonbreaking emoticons"
             ],
-            toolbar1: "bold italic underline strikethrough bullist hr | link unlink @(ViewBag.ImageUploadType ?? "image") code blockquote | formatselect",
+            toolbar1: "fontselect | fontsizeselect | formatselect | bold italic underline strikethrough bullist hr | link unlink @(ViewBag.ImageUploadType ?? "image") blockquote | emoticons",
+            fontsize_formats: "8pt 10pt 12pt 13pt 14pt 18pt 24pt 36pt",
             remove_linebreaks: false,
             relative_urls: false,
             menubar: false,

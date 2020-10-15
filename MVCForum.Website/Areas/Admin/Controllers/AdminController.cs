@@ -26,23 +26,23 @@
             return View();
         }
 
-        #region Utils
+        //#region Utils
 
-        [HttpPost]
-        public void Aptitude()
-        {
-            try
-            {
-                var url = StringUtils.ReturnCurrentDomain();
-                var postString = string.Concat("url=", url);
-                var response = StringUtils.PostForm("http://www.mvcforum.com/base/MVCBase/DomainCheck", postString);
-            }
-            catch
-            {
-                // No need to do anything
-            }
-        }
+        //[HttpPost]
+        //public void Aptitude()
+        //{
+        //    try
+        //    {
+        //        var url = StringUtils.ReturnCurrentDomain();
+        //        var postString = string.Concat("url=", url);
+        //        var response = StringUtils.PostForm("http://localhost:9666/base/MVCBase/DomainCheck", postString);
+        //    }
+        //    catch
+        //    {
+        //        // No need to do anything
+        //    }
+        //}
 
-        #endregion
+        //#endregion
     }
 }

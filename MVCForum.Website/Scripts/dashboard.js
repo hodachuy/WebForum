@@ -49,7 +49,7 @@ function LatestNews() {
         $(".mvcforumlatestnews").html(data);
     });
 }
-function CallHome() {
-    $.post(app_base + "Admin/Admin/Aptitude", function (data) {
-    });
-}
+//function CallHome() {
+//    $.post(app_base + "Admin/Admin/Aptitude", function (data) {
+//    });
+//}
