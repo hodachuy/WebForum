@@ -109,24 +109,26 @@
             {
                 var categoriesInSection = groupedCategories[dbSection.Id];
                 var allPermissionSets = ViewModelMapping.GetPermissionsForCategories(categoriesInSection, _roleService, loggedOnUsersRole, true);
+
+                // set quyeenf 
                 foreach(var catSum in categoriesInSection)
                 {
-                    // mai chỉnh lại lấy bài post cuối về thời gian user
-                    var subCategories = _categoryService.GetAllDeepSubCategories(catSum.Category);
-                    if(subCategories.Count != 0)
+                    var subCategories = _categoryService.GetAllDeepSubCategories(catSum.Category).SelectMany(x=>x.Topics);
+                    // Any performance nhanh hon Count() : Any voi IEnumerable , .Length or .Count (such as ICollection<T>, IList<T>, List<T>, etc) 
+                    if (subCategories.Any())
                     {
-                        catSum.TopicCount += subCategories.SelectMany(x => x.Topics).Count();
-                        catSum.PostCount += subCategories.SelectMany(x => x.Topics).SelectMany(x => x.Posts).Count();
+                        catSum.TopicCount += subCategories.Count();
+                        catSum.PostCount += subCategories.SelectMany(x => x.Posts).Count();
                         if(catSum.MostRecentTopic != null)
                         {
                             catSum.MostRecentTopic = catSum.MostRecentTopic.LastPost.DateCreated >
-                                                    subCategories.SelectMany(x => x.Topics).OrderByDescending(t => t.LastPost.DateCreated).FirstOrDefault().LastPost.DateCreated ?
-                                                    catSum.MostRecentTopic : subCategories.SelectMany(x => x.Topics).OrderByDescending(t => t.LastPost.DateCreated).FirstOrDefault(); // TODO - Should this be a seperate call?
+                                                    subCategories.OrderByDescending(t => t.LastPost.DateCreated).FirstOrDefault().LastPost.DateCreated ?
+                                                    catSum.MostRecentTopic : subCategories.OrderByDescending(t => t.LastPost.DateCreated).FirstOrDefault(); // TODO - Should this be a seperate call?
 
                         }
                         else
                         {
-                            catSum.MostRecentTopic = subCategories.SelectMany(x => x.Topics).OrderByDescending(t => t.LastPost.DateCreated).FirstOrDefault();
+                            catSum.MostRecentTopic = subCategories.OrderByDescending(t => t.LastPost.DateCreated).FirstOrDefault();
                         }
                     }
                 }

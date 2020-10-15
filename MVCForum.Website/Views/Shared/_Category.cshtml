@@ -14,7 +14,7 @@
         </div>
         <div class="col-md-11 col-sm-12 col-xs-12 categoryrow-info pd-unset">           
             <div class="row categoryrow-info-report">
-                <div class="col-md-6 col-xs-12 catmostrecent">
+                <div class="col-md-5 col-xs-12 catmostrecent">
                     <h3>
                         <a class="category-title" href="@Model.Category.NiceUrl">@Html.Raw(Model.Category.Name)</a>
                     </h3>
@@ -50,7 +50,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-3 col-xs-6 catlastpost">
+                <div class="col-md-4 col-xs-6 catlastpost">
                     @if (Model.LatestTopic != null)
                     {
                     <span> 
@@ -59,12 +59,12 @@
                     <span><a href="#" title="Đến bài cuối"><i class="glyphicon glyphicon-share-alt"></i></a></span>
                     <br />
                     <span>@Html.Raw(string.Format(Html.LanguageString("Topic.StartedBy"),
-                         string.Format("<a href='{0}'>{1}</a>", Model.LatestTopic.User.NiceUrl, Model.LatestTopic.User.UserName)))                       
+                         string.Format("<a href='{0}'>{1}</a>", Model.LatestTopic.LastPost.User.NiceUrl, Model.LatestTopic.LastPost.User.UserName)))                       
                     </span>
                     <br />
-                    <span>@Model.LatestTopic.CreateDate.ToString("dd-MM-yyyy, hh:mm tt", CultureInfo.InvariantCulture)</span>
+                    <span>@Model.LatestTopic.LastPost.DateCreated.ToString("dd-MM-yyyy, hh:mm tt", CultureInfo.InvariantCulture)</span>
                     <br />
-                    <span>@Html.Raw(DatesUi.GetPrettyDate(Model.LatestTopic.CreateDate.ToString()))</span>
+                    <span>@Html.Raw(DatesUi.GetPrettyDate(Model.LatestTopic.LastPost.DateCreated.ToString()))</span>
                     }
                 </div>
             </div>
