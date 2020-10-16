@@ -6,25 +6,26 @@
 }
 @if (!Model.Permissions[ForumConfiguration.Instance.PermissionDenyAccess].IsTicked)
 {
-
-    <div class="topicrow topicsticky-@(Model.Topic.IsSticky.ToString().ToLower()) topiclocked-@(Model.Topic.IsLocked.ToString().ToLower()) topicsolved-@(Model.Topic.Solved.ToString().ToLower())">
-
-        <div class="rowcreater hidden-xs">
-            <a href="@Model.Topic.User.NiceUrl">
-                <img src="@Model.Topic.User.MemberImage(ForumConfiguration.Instance.GravatarTopicSize)" alt="@Model.Topic.User.UserName">
-            </a>
-            @if (Model.MemberIsOnline)
-            {
-                <span class="label label-success">
-                    @Html.Lang("Post.MemberIsOnline")
-                </span>
-            }
+    <div class="col-md-12 col-xs-12 pd-unset topicrow topicsticky-@(Model.Topic.IsSticky.ToString().ToLower()) topiclocked-@(Model.Topic.IsLocked.ToString().ToLower()) topicsolved-@(Model.Topic.Solved.ToString().ToLower())">
+        <div class="col-md-2 rowcreater hidden-xs pd-unset">
+            <div class="stats">
+                <div class="vote">
+                    <div class="votes">
+                        <span class="vote-count-post "><strong>@Model.VotesUp.KiloFormat()</strong></span>
+                        <div class="viewcount">Lượt thích</div>
+                    </div>
+                </div>
+                <div class="status answered">
+                    <strong>@Model.Answers.KiloFormat()</strong>trả lời
+                </div>
+            </div>
+            <div class="views " title="357">
+                @Model.Views.KiloFormat() xem
+            </div>
         </div>
-
-        <div class="rowdetails">
-            <p class="category categorysolved@(Model.Topic.Solved.ToString().ToLower())" style="border-color: @(string.IsNullOrEmpty(Model.Topic.Category.Colour) ? "#ced1d1" : Model.Topic.Category.Colour)">@Html.LanguageString("Topic.Category"): <a href="@Model.Topic.Category.NiceUrl">@Model.Topic.Category.Name</a></p>
+        <div class="col-md-10 rowdetails ml-10 pd-unset">
             <h3>
-                <a title="@postToolTip" href="@Html.Raw(Model.Topic.NiceUrl)">
+                <a title="@Html.Raw(postToolTip)" href="@Html.Raw(Model.Topic.NiceUrl)">
                     @if (Model.Topic.IsSticky)
                     {
                         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
@@ -40,6 +41,9 @@
                     @Html.Raw(Model.Topic.Name)
                 </a>
             </h3>
+            <h4 class="font-size-12">@Html.Raw(postToolTip)</h4>
+            <p class="category categorysolved@(Model.Topic.Solved.ToString().ToLower())" style="border-color: @(string.IsNullOrEmpty(Model.Topic.Category.Colour) ? "#ced1d1" : Model.Topic.Category.Colour)">@Html.LanguageString("Topic.Category"): <a href="@Model.Topic.Category.NiceUrl">@Model.Topic.Category.Name</a></p>
+
             @if (Model.ShowUnSubscribedLink)
             {
                 <p>
@@ -51,7 +55,7 @@
             }
             else if (Model.Topic.Tags.Any())
             {
-                <div class="tagsinput clearfix">
+                <div class="tagsinput ">
                     @foreach (var tag in Model.Topic.Tags)
                     {
                         <span class="tag"><span><a href="@Html.Raw(tag.NiceUrl)">@Html.Raw(tag.Tag)</a></span></span>
@@ -59,7 +63,7 @@
                 </div>
             }
 
-            <p class="topicrowfooterinfo">
+            <p class="topicrowfooterinfo hidden-lg hidden-md hidden-sm">
                 <a href="@Html.Raw(Model.LastPostPermaLink)">
                     <img src="@Model.Topic.LastPost.User.MemberImage(ForumConfiguration.Instance.GravatarLatestBySize)" class="latestby" alt="@Model.Topic.LastPost.User.UserName">
                 </a> 
@@ -79,7 +83,19 @@
                     <span class="stats topicsolved"><span class="glyphicon glyphicon-ok green-colour" aria-hidden="true"></span></span>
                 }
             </p>
-
+            <p class="topicrowfooterinfo text-right hidden-xs">
+                <a href="@Html.Raw(Model.LastPostPermaLink)">
+                    <img src="@Model.Topic.LastPost.User.MemberImage(ForumConfiguration.Instance.GravatarLatestBySize)" class="latestby" alt="@Model.Topic.LastPost.User.UserName">
+                </a>
+                <a href="@Html.Raw(Model.LastPostPermaLink)">
+                    @Html.LanguageString("Topic.LatestBy")
+                </a>
+                <a href="@Model.Topic.LastPost.User.NiceUrl">
+                    @Model.Topic.LastPost.User.UserName
+                </a>
+                @DatesUi.GetPrettyDate(Model.Topic.LastPost.DateCreated.ToString()).
+            </p>
         </div>
     </div>
+    <div class="clearfix"></div>
 }

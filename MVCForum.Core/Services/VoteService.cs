@@ -76,7 +76,7 @@
                 .Include(x => x.Post.Topic)
                 .Where(x => topicIds.Contains(x.Post.Topic.Id))
                 .ToList()
-                .ToLookup(x => x.Post.Id);
+                .ToLookup(x => x.Post.Topic.Id); //x.Post.Id sửa bởi hdhuy: x.Post.Topic.Id lấy theo TopicId cho Guid
 
             foreach (var vgbtid in votesGroupedByTopicId)
             {

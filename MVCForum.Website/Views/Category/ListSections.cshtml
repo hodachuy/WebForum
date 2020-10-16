@@ -12,7 +12,7 @@
         {
             <div class="col-md-12 col-xs-12 panel panel-mvc">
                 <div class="col-md-12 col-xs-12 panel-heading">
-                    <span class="col-md-6 col-xs-10 font-weight-bold font-size-12">
+                    <span class="col-md-5 col-xs-10 font-weight-bold font-size-12">
                         @(sectionItem.Section.Name.ToUpper())
                     </span>
                     <span class="col-md-1 hidden-xs text-center">
@@ -21,11 +21,11 @@
                     <span class="col-md-2 hidden-xs text-center font-size-11">
                         Chủ đề / Bài viết
                     </span>
-                    <span class="col-md-2 hidden-xs text-center font-size-11">
+                    <span class="col-md-3 hidden-xs text-center font-size-11">
                         Bài viết cuối
                     </span>
                     <span class="col-md-1 col-xs-2 text-center">
-                        <a data-toggle="collapse" data-target="#collapse-@sectionItem.Section.Id">
+                        <a class="btn-collapse-pannel" data-toggle="collapse" data-target="#collapse-@sectionItem.Section.Id">
                         </a>
                     </span>
                 </div>
@@ -36,12 +36,13 @@
                             var permissions = sectionItem.AllPermissionSets[cat];
 
                             @Html.Partial("_Category", new CategoryViewModel {
-                                Category = cat.Category,
-                                LatestTopic = cat.MostRecentTopic,
-                                Permissions = permissions,
-                                PostCount = cat.PostCount,
-                                TopicCount = cat.TopicCount
-                            })
+                               Category = cat.Category,
+                               SubCategoriesAllPermissionSets = cat.SubCategoriesAllPermissionSets,
+                               LatestTopic = cat.MostRecentTopic,
+                               Permissions = permissions,
+                               PostCount = cat.PostCount,
+                               TopicCount = cat.TopicCount
+                       });
 
                         }
                     </div>

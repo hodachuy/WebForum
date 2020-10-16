@@ -1,18 +1,18 @@
 ﻿@using MvcForum.Core.ExtensionMethods
 @using MvcForum.Web.Application.ExtensionMethods
 @using System.Globalization
+@using MvcForum.Web.ViewModels.Category
 @model MvcForum.Web.ViewModels.Category.CategoryViewModel
-
 @if (!Model.Permissions[ForumConfiguration.Instance.PermissionDenyAccess].IsTicked)
 {
     <div class="col-md-12 col-xs-12 categoryrow">
         <div class="col-md-1 hidden-xs hidden-xs hidden-sm categoryrow-image pd-unset text-center">
             @if (!String.IsNullOrEmpty(Model.Category.Image))
             {
-                <img src="@AppHelpers.CategoryImage(Model.Category.Image, Model.Category.Id,49)" alt="@Model.Category.PageTitle" class="categoryimage" />                            
+                <img src="@AppHelpers.CategoryImage(Model.Category.Image, Model.Category.Id, 49)" alt="@Model.Category.PageTitle" class="categoryimage" />
             }
         </div>
-        <div class="col-md-11 col-sm-12 col-xs-12 categoryrow-info pd-unset">           
+        <div class="col-md-11 col-sm-12 col-xs-12 categoryrow-info pd-unset">
             <div class="row categoryrow-info-report">
                 <div class="col-md-5 col-xs-12 catmostrecent">
                     <h3>
@@ -20,7 +20,7 @@
                     </h3>
                     @if (Model.ShowUnSubscribedLink)
                     {
-                        <p>
+                        <p class="font-size-11">
                             <a href="#" class="emailunsubscription" data-id="@Model.Category.Id" data-type="category">
                                 <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
                                 @Html.LanguageString("Notification.UnSubscribe")
@@ -29,8 +29,18 @@
                     }
                     else
                     {
-                        <p>@Html.Raw(Model.Category.Description.ConvertPostContent())</p>
+                        <p class="categoryrow-subtitle">@Html.Raw(Model.Category.Description.ConvertPostContent())</p>
                     }
+                <div class="categoryrow-info-sub">
+                    @if (Model.SubCategoriesAllPermissionSets.Any())
+                    {
+                        <div class="categoryrow-sub-title">@Html.LanguageString("Category.SubCategoriesHeading")</div>
+                        @Html.Partial("_SubCategories", new SubCategoryViewModel
+                        {
+                            AllPermissionSets = Model.SubCategoriesAllPermissionSets
+                        })
+                    }
+                </div>  
                 </div>
                 <div class="col-md-1 hidden-xs catrss">
                     @if (Html.Settings().EnableRSSFeeds)
@@ -40,7 +50,7 @@
                         </a>
                     }
                 </div>
-                <div class="col-md-2 col-xs-6 cat-discussions-comment">
+                <div class="col-md-2 col-xs-12 cat-discussions-comment">
                     <ul class="list-inline">
                         <li>
                             @string.Format(Html.LanguageString("Rss.Category.Title"), Model.TopicCount)
@@ -50,22 +60,23 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-4 col-xs-6 catlastpost">
+                <div class="col-md-4 col-xs-12 catlastpost">
                     @if (Model.LatestTopic != null)
                     {
-                    <span> 
-                        <a href="@Model.LatestTopic.NiceUrl" title="Đến bài đầu tiên chưa đọc trong chủ đề '@Html.Raw(Model.LatestTopic.Name)'">@Html.Raw(Model.LatestTopic.Name)</a>
-                    </span>
-                    <span><a href="#" title="Đến bài cuối"><i class="glyphicon glyphicon-share-alt"></i></a></span>
-                    <br />
-                    <span>@Html.Raw(string.Format(Html.LanguageString("Topic.StartedBy"),
-                         string.Format("<a href='{0}'>{1}</a>", Model.LatestTopic.LastPost.User.NiceUrl, Model.LatestTopic.LastPost.User.UserName)))                       
+                        <span>
+                            <a href="@Model.LatestTopic.NiceUrl" title="Đến bài đầu tiên chưa đọc trong chủ đề '@Html.Raw(Model.LatestTopic.Name)'">@Html.Raw(Model.LatestTopic.Name)</a>
+                        </span>
+                        <span><a href="#" title="Đến bài cuối"><i class="glyphicon glyphicon-share-alt"></i></a></span>
+                        <br />
+                        <span>
+                            @Html.Raw(string.Format(Html.LanguageString("Topic.StartedBy"),
+                                      string.Format("<a href='{0}'>{1}</a>", Model.LatestTopic.LastPost.User.NiceUrl, Model.LatestTopic.LastPost.User.UserName)))
                     </span>
                     <br />
                     <span>@Model.LatestTopic.LastPost.DateCreated.ToString("dd-MM-yyyy, hh:mm tt", CultureInfo.InvariantCulture)</span>
                     <br />
                     <span>@Html.Raw(DatesUi.GetPrettyDate(Model.LatestTopic.LastPost.DateCreated.ToString()))</span>
-                    }
+                }
                 </div>
             </div>
         </div>

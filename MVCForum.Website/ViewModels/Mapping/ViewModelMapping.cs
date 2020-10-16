@@ -39,7 +39,6 @@
                         continue;
                     }
                 }
-
                 permissions.Add(summary, permissionSet);
             }
             return permissions;
@@ -364,6 +363,7 @@
             postIds.Add(starterPost.Id);
 
             // Map the votes
+            // Get Votes start Post
             var startPostVotes = new List<Vote>();
             if (votes.ContainsKey(starterPost.Id))
             {
@@ -382,8 +382,8 @@
                 settings, startPostFavs);
 
             // Map data from the starter post viewmodel
-            viewModel.VotesUp = startPostVotes.Count(x => x.Amount > 0);
-            viewModel.VotesDown = startPostVotes.Count(x => x.Amount < 0);
+            viewModel.VotesUp = votes.Select(x => x.Value.Count(y => y.Amount > 0)).Count();  //startPostVotes.Count(x => x.Amount > 0);
+            viewModel.VotesDown = votes.Select(x => x.Value.Count(y => y.Amount < 0)).Count(); //startPostVotes.Count(x => x.Amount < 0);
             viewModel.Answers = totalCount ?? posts.Count - 1;
 
             // Create the ALL POSTS view models

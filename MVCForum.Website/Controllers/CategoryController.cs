@@ -12,6 +12,7 @@
     using Core.Models.Entities;
     using Core.Models.Enums;
     using Core.Models.General;
+    using MvcForum.Core.Models;
     using ViewModels.Breadcrumb;
     using ViewModels.Category;
     using ViewModels.Mapping;
@@ -108,38 +109,49 @@
             foreach (var dbSection in dbSections)
             {
                 var categoriesInSection = groupedCategories[dbSection.Id];
-                var allPermissionSets = ViewModelMapping.GetPermissionsForCategories(categoriesInSection, _roleService, loggedOnUsersRole, true);
+                //var allPermissionSets = ViewModelMapping.GetPermissionsForCategories(categoriesInSection, _roleService, loggedOnUsersRole, true);
 
-                // set quyeenf 
-                foreach(var catSum in categoriesInSection)
+                // Permissions
+                // loop through the categories and get the permissions
+                var allPermissionSets = new Dictionary<CategorySummary, PermissionSet>();
+                foreach (var summary in categoriesInSection)
                 {
-                    var subCategories = _categoryService.GetAllDeepSubCategories(catSum.Category).SelectMany(x=>x.Topics);
-                    // Any performance nhanh hon Count() : Any voi IEnumerable , .Length or .Count (such as ICollection<T>, IList<T>, List<T>, etc) 
+                    var permissionSet = _roleService.GetPermissions(summary.Category, loggedOnUsersRole);
+
+                    // Should we add if deny access is ticked
+                    if (permissionSet[ForumConfiguration.Instance.PermissionDenyAccess].IsTicked)
+                    {
+                        continue;
+                    }
+
+                    var subCategories = _categoryService.GetAllDeepSubCategories(summary.Category).SelectMany(x => x.Topics);
                     if (subCategories.Any())
                     {
-                        catSum.TopicCount += subCategories.Count();
-                        catSum.PostCount += subCategories.SelectMany(x => x.Posts).Count();
-                        if(catSum.MostRecentTopic != null)
+                        summary.TopicCount += subCategories.Count();
+                        summary.PostCount += subCategories.SelectMany(x => x.Posts).Count();
+                        if (summary.MostRecentTopic != null)
                         {
-                            catSum.MostRecentTopic = catSum.MostRecentTopic.LastPost.DateCreated >
+                            summary.MostRecentTopic = summary.MostRecentTopic.LastPost.DateCreated >
                                                     subCategories.OrderByDescending(t => t.LastPost.DateCreated).FirstOrDefault().LastPost.DateCreated ?
-                                                    catSum.MostRecentTopic : subCategories.OrderByDescending(t => t.LastPost.DateCreated).FirstOrDefault(); // TODO - Should this be a seperate call?
-
+                                                    summary.MostRecentTopic : subCategories.OrderByDescending(t => t.LastPost.DateCreated).FirstOrDefault(); // TODO - Should this be a seperate call?
                         }
                         else
                         {
-                            catSum.MostRecentTopic = subCategories.OrderByDescending(t => t.LastPost.DateCreated).FirstOrDefault();
+                            summary.MostRecentTopic = subCategories.OrderByDescending(t => t.LastPost.DateCreated).FirstOrDefault();
                         }
                     }
+
+                    allPermissionSets.Add(summary, permissionSet);
+
+                    summary.SubCategoriesAllPermissionSets = ViewModelMapping.GetPermissionsForCategories(_categoryService.GetAllSubCategories(summary.Category.Id), _roleService, loggedOnUsersRole);
                 }
+
                 allSections.Add(new SectionListViewModel
                 {
                     Section = dbSection,
                     AllPermissionSets = allPermissionSets
                 });
-
             }
-
             return PartialView(allSections);
         }
 

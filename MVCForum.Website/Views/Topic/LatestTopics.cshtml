@@ -5,11 +5,40 @@
     var totalCount = Convert.ToInt32(Model.TotalCount);
     ViewBag.Canonical = Html.Raw(AppHelpers.CanonicalPagingTag(totalCount, Html.Settings().TopicsPerPage, Html));
 }
+<div class="row latesttopics">
+    <div class="col-md-12 col-xs-12 panel panel-mvc">
+        <div class="col-md-12 col-xs-12 panel-heading">
+            <span class="col-md-6 col-xs-10 font-weight-bold font-size-12">
+                @Html.LanguageString("Home.LatestDiscussions")
+                @if (Html.Settings().EnableRSSFeeds)
+                {
+                    <a href="@Url.Action("LatestRss", "Home")" class="rsssubscribe" title="@Html.LanguageString("Home.Rss")" target="_blank">
+                        <i class="fa fa-rss-square orange-colour"></i>
+                    </a>
+                }
+            </span>
+            <span class="col-md-6 col-xs-2 text-right">
+                <a class="btn-collapse-pannel" data-toggle="collapse" data-target="#collapse-LatestDiscussions"></a>
+            </span>
+        </div>
+        <div class="col-md-12 col-xs-12 panel-collapse collapse in pd-unset" id="collapse-LatestDiscussions">
+            <div class="panel-body">
+                @foreach (var topic in Model.Topics)
+                {
+                    Html.RenderPartial("_Topic", topic);
+                }
 
-<div class="latesttopics">
-    <div class="clearfix">
-        <div class="widgetright hidden-xs">
-            @if (Html.Settings().EnableRSSFeeds)
+                @if (Model.TotalPages > 1)
+                {
+                    @Html.Pager(Convert.ToInt32(Model.PageIndex), Html.Settings().TopicsPerPage, totalCount, null, "Index", "Home")
+                }
+            </div>
+        </div>
+    </div>
+
+    @*<div class="clearfix">
+    <div class="widgetright hidden-xs">
+             @if (Html.Settings().EnableRSSFeeds)
             {
                 <a href="@Url.Action("LatestRss", "Home")" class="rsssubscribe" title="@Html.LanguageString("Home.Rss")">
                     <i class="fa fa-rss-square orange-colour"></i>
@@ -18,7 +47,6 @@
         </div>
         <h3>@Html.LanguageString("Home.LatestDiscussions")</h3>
     </div>
-
     @foreach (var topic in Model.Topics)
     {
         Html.RenderPartial("_Topic", topic);
@@ -27,6 +55,6 @@
     @if (Model.TotalPages > 1)
     {
         @Html.Pager(Convert.ToInt32(Model.PageIndex), Html.Settings().TopicsPerPage, totalCount, null, "Index", "Home")
-    }
+    }*@
 
 </div>

@@ -11,6 +11,7 @@
         public PermissionSet Permissions { get; set; }
         public Category Category { get; set; }
         public CategoryListViewModel SubCategories { get; set; }
+        public Dictionary<Category, PermissionSet> SubCategoriesAllPermissionSets { get; set; }
         public MembershipUser User { get; set; }
         public bool IsSubscribed { get; set; }
 
