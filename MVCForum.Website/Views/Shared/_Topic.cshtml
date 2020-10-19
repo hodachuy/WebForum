@@ -15,7 +15,7 @@
                         <div class="viewcount">Lượt thích</div>
                     </div>
                 </div>
-                <div class="status answered">
+                <div class="status @(Model.Answers.KiloFormat() != "0" ? "answered":"unanswered")">
                     <strong>@Model.Answers.KiloFormat()</strong>trả lời
                 </div>
             </div>
@@ -41,7 +41,7 @@
                     @Html.Raw(Model.Topic.Name)
                 </a>
             </h3>
-            <h4 class="font-size-12">@Html.Raw(postToolTip)</h4>
+            <h4 class="font-size-13">@Html.Raw(postToolTip)</h4>
             <p class="category categorysolved@(Model.Topic.Solved.ToString().ToLower())" style="border-color: @(string.IsNullOrEmpty(Model.Topic.Category.Colour) ? "#ced1d1" : Model.Topic.Category.Colour)">@Html.LanguageString("Topic.Category"): <a href="@Model.Topic.Category.NiceUrl">@Model.Topic.Category.Name</a></p>
 
             @if (Model.ShowUnSubscribedLink)

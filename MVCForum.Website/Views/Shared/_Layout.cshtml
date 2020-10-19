@@ -28,56 +28,55 @@
     @RenderSection("SocialMeta", false)
     @ViewBag.Canonical
     @Html.Partial("_StyleSheets", theme)
-    <link rel="shortcut icon" href="@Url.Content($"{theme.ThemePath}/content/images/favicon.ico")">
+    <link rel="shortcut icon" href="@Url.Content($"/content/images/fav.png")">
     <link rel="apple-touch-icon-precomposed" href="@Url.Content($"{theme.ThemePath}/content/images/apple-touch-icon-57-precomposed.png")">
+    <!--flag country-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css" />
+    <!--prism-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.min.css"/>
+
     @Html.Partial("_JavaScript", theme)
     @RenderSection("Header", false)
     @if (!string.IsNullOrEmpty(Html.Settings().CustomHeaderCode))
     {
-        @Html.Raw(Html.Settings().CustomHeaderCode)
-    }
+@Html.Raw(Html.Settings().CustomHeaderCode)}
 </head>
 
 <body class="@TempData[Constants.GlobalClass].ToString() loggedin-@(User.Identity.IsAuthenticated.ToString().ToLower())">
-    
+
     <nav class="pushy pushy-left">
         <ul>
             @if (User.Identity.IsAuthenticated)
             {
-                @Html.Action("SideAdminPanel", "Members", new { isDropDown  = false})
-            }
+@Html.Action("SideAdminPanel", "Members", new { isDropDown = false }) }
             else
             {
                 if (Html.Settings().SuspendRegistration != true)
                 {
-                    <li><a href="@Url.Action("Register", "Members")">@Html.LanguageString("Layout.Nav.Register")</a></li>
-                }
-                <li><a href="@Url.Action("LogOn", "Members")">@Html.LanguageString("Layout.Nav.Logon")</a></li>
-            }
+<li><a href="@Url.Action("Register", "Members")">@Html.LanguageString("Layout.Nav.Register")</a></li> }
+<li><a href="@Url.Action("LogOn", "Members")">@Html.LanguageString("Layout.Nav.Logon")</a></li>            }
             <li><a href="@Url.Action("Index", "Category")">@Html.LanguageString("Category.AllCategories")</a></li>
             @Html.Partial("SubNavigation")
         </ul>
     </nav>
-    <div class="site-overlay"></div>    
-
+    <div class="site-overlay"></div>
     <header>
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle menu-btn">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="@Url.Action("Index", "Home")">
-                        @*<img src="@Url.Content($"{theme.ThemePath}/content/images/logo.png")" alt="@Html.Lang("Site.MvcForum")" class="logoimg"/>*@    
-                        <h1>@Html.LanguageString("Site.MvcForum")</h1>
+        <!--Header MVC Forum-->
+        <!--<nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle menu-btn">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")">-->
+        @*<img src="@Url.Content($"{theme.ThemePath}/content/images/logo.png")" alt="@Html.Lang("Site.MvcForum")" class="logoimg"/>*@
+        <!--<h1>@Html.LanguageString("Site.MvcForum")</h1>
                     </a>
                 </div>
-
                 <div class="collapse navbar-collapse" id="mvcforum-nav">
-    
                     <ul class="nav navbar-nav navbar-right">
                         @if (!User.Identity.IsAuthenticated)
                         {
@@ -85,18 +84,51 @@
                             {
                                 <li><a class="auto-register" href="@Url.Action("Register", "Members")">@Html.LanguageString("Layout.Nav.Register")</a></li>
                             }
-                            <li><a class="auto-logon" href="@Url.Action("LogOn", "Members")">@Html.LanguageString("Layout.Nav.Logon")</a></li>
-                        }                        
+                                <li><a class="auto-logon" href="@Url.Action("LogOn", "Members")">@Html.LanguageString("Layout.Nav.Logon")</a></li>
+                        }
                         @if (User.Identity.IsAuthenticated)
                         {
                             @Html.Action("SideAdminPanel", "Members", new { isDropDown = true })
                         }
                     </ul>
-
-
                 </div>
             </div>
-        </nav>
+        </nav>-->
+        <!--End Header MVC Forum-->
+        <!--Header Lawout Site LawCoviet-->
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="http://lawcoviet.vn">
+                        <img src="http://home.lawcoviet.vn/asset/images/logoHDPL.png">
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav text-center navbar-nav navbar-right">
+                        <li><a class="nav-menu-item" href="http://lawcoviet.vn">TRANG CHỦ<span></span></a></li>
+                        <li><a class="nav-menu-item" href="http://home.lawcoviet.vn/dich-vu-cong.html">DỊCH VỤ CÔNG<span></span></a></li>
+                        <li><a class="nav-menu-item" href="/http://home.lawcoviet.vn/van-ban-phap-luat.html">VĂN BẢN VÀ CHỈ DẪN<span></span></a></li>
+                        <li><a class="nav-menu-item" href="http://home.lawcoviet.vn/cau-hoi-phap-luat.html">HỎI ĐÁP LUẬT<span></span></a></li>
+                        <li class="active"><a class="nav-menu-item" href="#">TRAO ĐỔI<span></span></a></li>
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            if (Html.Settings().SuspendRegistration != true)
+                            {
+            <li><a class="nav-menu-item auto-register" href="@Url.Action("Register", "Members")">@Html.LanguageString("Layout.Nav.Register")</a></li> }
+            <li><a class="nav-menu-item auto-logon" href="@Url.Action("LogOn", "Members")">@Html.LanguageString("Layout.Nav.Logon")</a></li>}
+                        @if (User.Identity.IsAuthenticated)
+                        {
+
+            @Html.Action("SideAdminPanel", "Members", new { isDropDown = true })}
+                    </ul>
+                </div>
+            </div>
+        </div>
     </header>
 
     <section class="content-strip content-strip-@(User.Identity.IsAuthenticated.ToString().ToLower())">
@@ -129,11 +161,39 @@
             @RenderSection("Footer", false)
 
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-4 col-xs-12">
                     @Html.Action("GetMainStats", "Stats")
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-3 col-xs-12">
                     @Html.Action("GetCurrentActiveMembers", "Members")
+                </div>
+                <div class="col-sm-5 col-xs-12 topic-permissions-description">
+                    <div class="col-sm-7 topic-permissions-active">
+                        <h6>Quyền viết bài:</h6>
+                        <ul class="list-unstyled pl-0">
+                            <li>Bạn Không thể gửi Chủ đề mới</li>
+                            <li>Bạn Không thể gửi Trả lời</li>
+                            <li>Bạn Không thể gửi Trả lời</li>
+                            <li>Bạn Không thể gửi Trả lời</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-5 topic-permissions-control">
+                        <h6>&nbsp;</h6>
+                        <ul class="list-unstyled pl-0">
+                            <li>
+                                <a href="" target="_blank">BBCode</a> đang <strong>Bật</strong>
+                            </li>
+                            <li>
+                                <a href="" target="_blank">Smilies</a> đang <strong>Bật</strong>
+                            </li>
+                            <li>
+                                <a href="" target="_blank">HTML Code</a> đang <strong>Bật</strong>
+                            </li>
+                            <li>
+                                <a href="" target="_blank">[IMG] Code</a> đang <strong>Bật</strong>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
@@ -151,7 +211,8 @@
     @if (!string.IsNullOrEmpty(Html.Settings().CustomFooterCode))
     {
         @Html.Raw(Html.Settings().CustomFooterCode)
-    }    
+    }
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
 </body>
 </html>

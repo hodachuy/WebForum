@@ -3,6 +3,14 @@
 <div class="side-box categories-box">
     <h5>@Html.LanguageString("Language.Change")</h5>
     <div class="languageselector">
-        @Html.DropDownListFor(model => model.CurrentLanguage, new SelectList(Model.Alllanguages, "Id", "Name"))
+        <select class="selectpicker select-language" data-width="fit" data-val="true" data-val-required="The CurrentLanguage field is required." id="CurrentLanguage" name="CurrentLanguage">
+            @foreach(var language in Model.Alllanguages)
+            {
+                <option data-content='<span class="flag-icon flag-icon-@language.LanguageCulture.ToLower().Split('-')[1]"></span> @language.Name' value="@language.Id" @((Model.CurrentLanguage == language.Id) == true ? "selected=selected" : "")>
+                    @language.Name
+                </option>
+            }
+        </select>
+        @*@Html.DropDownListFor(model => model.CurrentLanguage, new SelectList(Model.Alllanguages, "Id", "Name"))*@
     </div>
 </div>

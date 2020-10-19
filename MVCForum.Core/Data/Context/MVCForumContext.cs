@@ -42,6 +42,7 @@
         public virtual DbSet<PollAnswer> PollAnswer { get; set; }
         public virtual DbSet<PollVote> PollVote { get; set; }
         public virtual DbSet<Post> Post { get; set; }
+        public virtual DbSet<Page> Page { get; set; }
         public virtual DbSet<PrivateMessage> PrivateMessage { get; set; }
         public virtual DbSet<Settings> Setting { get; set; }
         public virtual DbSet<Topic> Topic { get; set; }

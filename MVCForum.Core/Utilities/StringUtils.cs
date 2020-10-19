@@ -1195,6 +1195,15 @@
             exp = new Regex(@"\[size\=([^\]]+)\]([^\]]+)\[/size\]");
             str = exp.Replace(str, "<span style=\"font-size:$1em;\">$2</span>");
 
+            //format the colour tags: [color=red][/color]
+            // becomes: <font color="red"></font>
+            // supports UK English and US English spelling of colour/color
+            exp = new Regex(@"\[color\=([^\]]+)]([^\]]+)\[/color\]");
+            str = exp.Replace(str, "<font color=\"$1\">$2</font>");
+            exp = new Regex(@"\[colour=([^\]]+)]([^\]]+)\[/colour\]");
+            str = exp.Replace(str, "<font color=\"$1\">$2</font>");
+
+
             return str;
         }
         #endregion

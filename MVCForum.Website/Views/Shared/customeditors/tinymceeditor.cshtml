@@ -9,9 +9,21 @@
             browser_spellcheck: true,
             plugins: [
                 "autosave link image lists hr anchor forumimageinsert",
-                "wordcount visualblocks visualchars code fullscreen media nonbreaking emoticons"
+                "wordcount visualblocks visualchars code fullscreen media nonbreaking emoticons codesample code"
             ],
-            toolbar1: "fontselect | fontsizeselect | formatselect | bold italic underline strikethrough bullist hr | link unlink @(ViewBag.ImageUploadType ?? "image") blockquote | emoticons",
+            codesample_languages: [
+                { text: 'HTML/XML', value: 'markup' },
+                { text: 'JavaScript', value: 'javascript' },
+                { text: 'CSS', value: 'css' },
+                { text: 'PHP', value: 'php' },
+                { text: 'Ruby', value: 'ruby' },
+                { text: 'Python', value: 'python' },
+                { text: 'Java', value: 'java' },
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' }
+            ],
+            toolbar1: "fontselect | fontsizeselect | formatselect | bold italic underline strikethrough bullist hr | link unlink @(ViewBag.ImageUploadType ?? "image") blockquote | emoticons | codesample code",
             fontsize_formats: "8pt 10pt 12pt 13pt 14pt 18pt 24pt 36pt",
             remove_linebreaks: false,
             relative_urls: false,

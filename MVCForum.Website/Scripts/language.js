@@ -1,4 +1,7 @@
 ﻿$(function () {
+    $('.select-language').selectpicker();
+});
+$(function () {
     ChangeLanguage();
 });
 
