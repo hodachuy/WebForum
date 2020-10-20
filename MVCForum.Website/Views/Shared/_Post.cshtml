@@ -38,12 +38,11 @@
 
     <div class="rowdetails clearfix">
 
-
         @if (Html.CurrentMember() != null && !Model.MinimalPost)
         {
             <div class="postadmin">
                 <button class="postoptions btn-mvc btn-mvc-fullwidth">@Html.LanguageString("Post.Options")</button>
-                <ul class="clearfix postadminlist">
+                <ul class="clearfix postadminlist hidden">
                     <li>
                         
                         <a class="btn-mvc btn-mvc-small btn-mvc-fullwidth" href="?quote=@Model.Post.Id#createpost" title="@Html.LanguageString("Post.Quote")">
@@ -117,8 +116,7 @@
             <div class="postbodytop">
                 @if (Model.ShowTopicName)
                 {
-                    <p><a href="@Model.ParentTopic.NiceUrl">@Model.ParentTopic.Name</a></p>
-                }
+            <p><a href="@Model.ParentTopic.NiceUrl">@Model.ParentTopic.Name</a></p>}
                 <a class="postmember-@postId" href="@Html.Raw(Model.Post.User.NiceUrl)">@Html.Raw(Model.Post.User.UserName)</a>
                 @Html.LanguageString("Post.PostedThis")
                 @DatesUi.GetPrettyDate(Model.Post.DateCreated.ToString())
@@ -126,19 +124,31 @@
                 {
                     <text> - @Model.Post.IpAddress</text>
                 }
-                <span class="hidden-xs">
-                    @if (Html.Settings().DisplayEditedBy && Model.Post.DateEdited > Model.Post.DateCreated)
-                    {
-                        if (Model.Permissions[ForumConfiguration.Instance.PermissionEditPosts].IsTicked)
+                    <span class="hidden-xs">
+                        @if (Html.Settings().DisplayEditedBy && Model.Post.DateEdited > Model.Post.DateCreated)
                         {
-                            <text> - <a href="@Url.Action("GetPostEditHistory", "Post", new {id = Model.Post.Id})" class="showpostedithistory" data-name="@Html.Lang("PostEdit.Panel.Name")">@Html.LanguageString("Post.LastEdited")  @DatesUi.GetPrettyDate(Model.Post.DateEdited.ToString())</a></text>
+                            if (Model.Permissions[ForumConfiguration.Instance.PermissionEditPosts].IsTicked)
+                            {
+                                <text> - <a href="@Url.Action("GetPostEditHistory", "Post", new {id = Model.Post.Id})" class="showpostedithistory" data-name="@Html.Lang("PostEdit.Panel.Name")">@Html.LanguageString("Post.LastEdited")  @DatesUi.GetPrettyDate(Model.Post.DateEdited.ToString())</a></text> 
+                            }
+                            else
+                            {
+                                <text> - @Html.LanguageString("Post.LastEdited")  @DatesUi.GetPrettyDate(Model.Post.DateEdited.ToString())</text>
+                            }
                         }
-                        else
-                        {
-                            <text> - @Html.LanguageString("Post.LastEdited")  @DatesUi.GetPrettyDate(Model.Post.DateEdited.ToString())</text>
-    }
-}
-                </span>
+                    </span>
+
+                    @if (Model.Idx != 0)
+                    {
+                        <a class="permalink float-r text-muted" href="@Html.Raw(Model.PermaLink)">
+                            #@Model.Idx
+                        </a>
+                    }
+                    <a class="post-reply-quote float-r" href="?quote=@Model.Post.Id#createpost" title="@Html.LanguageString("Post.Quote")">
+                        <i class="icon fa fa-quote-left" aria-hidden="true"></i>
+                        <span class="sr-only">Quote</span>
+                    </a>
+
             </div>
 
             <div id="postcontent-@postId" class="postcontent">
@@ -152,13 +162,14 @@
 
             @if (!Model.MinimalPost)
             {
-                <div class="postsocial">
-                    <ul>
-                        <li class="permalink">
+                <div class="row pd-unset">
+                    <div class="col-md-10 col-xs-12 postsocial">
+                        <ul>
+                        @*<li class="permalink">
                             <a href="@Html.Raw(Model.PermaLink)">
                                 #@Html.Lang("Post.Permalink")
                             </a>
-                        </li>
+                        </li>*@
                         <li>
                             <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
                             @if (Html.Settings().EnablePoints)
@@ -229,7 +240,79 @@
                             </li>
                         }
                     </ul>
+                    </div>
+                    <div class="col-md-2 col-xs-12 posttool">
+                        <div class="dropdown text-right">
+                            <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" id="tool-post">
+                                <span class="glyphicon glyphicon-option-horizontal"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="tool-post" style="min-width:30px;">
+                                 <li>                      
+                                    <a class="btn-mvc btn-mvc-small btn-mvc-fullwidth" href="?quote=@Model.Post.Id#createpost" title="@Html.LanguageString("Post.Quote")">
+                                        @*@Html.LanguageString("Post.Quote")*@
+                                        <i class="glyphicon glyphicon-comment"></i>
+                                    </a>
+                                </li>
 
+                                @if (Model.Post.User.Id != loggedOnUserId && loggedOnUserId != Guid.Empty && Html.Settings().EnableSpamReporting)
+                                {
+                                    <li>
+                                        <a class="btn-mvc btn-mvc-small btn-mvc-fullwidth" href="@Url.Action("Report", "Post", new { id = Model.Post.Id })" title="@Html.LanguageString("Post.Report")">
+                                            @*@Html.LanguageString("Post.Report")*@
+                                            <i class="glyphicon glyphicon glyphicon-exclamation-sign"></i>
+                                        </a>
+                                    </li>
+                                }
+
+                                @if (Model.Post.User.Id == loggedOnUserId || Model.Permissions[ForumConfiguration.Instance.PermissionDeletePosts].IsTicked)
+                                {
+                                    <li>
+                                            @using (Html.BeginForm("DeletePost", "Post", FormMethod.Post, new {@class = "form-login"}))
+                                            {
+                                                <button class="btn-mvc btn-mvc-small btn-mvc-fullwidth" onclick="return confirm('@(Html.LanguageString("Post.DeleteConfirmation"))')" type="submit" title="@Html.LanguageString("Post.Delete")">
+                                                    @*@Html.LanguageString("Post.Delete")*@
+                                                    <i class="glyphicon glyphicon-remove-circle"></i>
+                                                </button>
+                                                @Html.Hidden("id", Model.Post.Id)
+                                            }
+                                        @*<a class="btn-mvc btn-mvc-small btn-mvc-fullwidth" onclick="return confirm('@(Html.LanguageString("Post.DeleteConfirmation"))')" href="@Url.Action("DeletePost", "Post", new {id = Model.Post.Id})">
+                                            @Html.LanguageString("Post.Delete")
+                                        </a>*@
+                                    </li>
+                                }
+
+                                @if (Model.Post.User.Id == loggedOnUserId || Model.Permissions[ForumConfiguration.Instance.PermissionEditPosts].IsTicked)
+                                {
+                                    <li>
+                                        <a class="btn-mvc btn-mvc-small btn-mvc-fullwidth" href="@Url.Action("EditPostTopic", "Topic", new { id = Model.Post.Id })" title="@Html.LanguageString("Post.Edit")">
+                                            @*@Html.LanguageString("Post.Edit")*@
+                                            <i class="glyphicon glyphicon-edit"></i>
+                                        </a>
+                                    </li>
+                                }
+
+                                @if (!Model.Post.IsTopicStarter && Model.Permissions[ForumConfiguration.Instance.PermissionEditPosts].IsTicked)
+                                {
+                                    <li>
+                                        <a class="btn-mvc btn-mvc-small btn-mvc-fullwidth" href="@Url.Action("MovePost", "Post", new { id = Model.Post.Id })" title="@Html.LanguageString("Post.Move")">
+                                            @*@Html.LanguageString("Post.Move")*@
+                                            <i class="glyphicon glyphicon-move"></i>
+                                        </a>
+                                    </li>
+                                }
+
+                                @if ((Model.Post.User.Id == loggedOnUserId && Model.Post.User.DisableFileUploads != true || User.IsInRole(Constants.AdminRoleName)) && Model.Permissions[ForumConfiguration.Instance.PermissionAttachFiles].IsTicked)
+                                {
+                                    <li>
+                                        <a class="btn-mvc btn-mvc-small btn-mvc-fullwidth postshowattach" href="#" title="@Html.LanguageString("Post.Attach")">
+                                            @*@Html.LanguageString("Post.Attach")*@
+                                            <i class="glyphicon glyphicon-floppy-open"></i>
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                   </div>
                 </div>
             }
 

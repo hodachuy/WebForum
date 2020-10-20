@@ -18,7 +18,6 @@ $(function () {
     SetUpUploadStyle();
 });
 
-
 var SetUpUploadStyle = function () {
     $(document).on("change", ".btn-file :file", function () {
         var input = $(this),

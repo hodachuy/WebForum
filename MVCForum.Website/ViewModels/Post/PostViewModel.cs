@@ -20,5 +20,6 @@
         public bool ShowTopicName { get; set; }
         public bool MinimalPost { get; set; }
         public bool IsTrustedUser { get; set; }
+        public int Idx { get; set; }
     }
 }

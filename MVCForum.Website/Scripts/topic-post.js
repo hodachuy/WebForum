@@ -13,6 +13,13 @@
     ModerateTopicPosts();
 });
 
+document.addEventListener('click', function (event) {
+    // filter out clicks on any other elements
+    if (event.target.nodeName == 'A' && event.target.getAttribute('aria-disabled') == 'true') {
+        event.preventDefault();
+    }
+});
+
 var ModerateTopicPosts = function() {
     var moderatepanel = $(".moderatepanelnav");
     if (moderatepanel) {

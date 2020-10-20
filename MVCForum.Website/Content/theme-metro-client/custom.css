@@ -26,6 +26,29 @@
 pl-0{
     padding-left:0;
 }
+.float-r{
+    float:right;
+}
+.float-l {
+    float: left;
+}
+
+.border-none{
+    border:none !important;
+}
+
+/*Disabled tag a*/
+.isDisabled {
+    cursor: not-allowed !important;
+    opacity: 0.5;
+}
+
+a[aria-disabled="true"] {
+    color: currentColor;
+    display: inline-block; /* For IE11/ MS Edge bug */
+    pointer-events: none;
+    text-decoration: none;
+}
 /*############################ end common #########################*/
 
 :root {
@@ -42,7 +65,7 @@ pl-0{
 }
 
 body {
-    /*    font-family: "Segoe UI";*/
+    /*font-family: "Segoe UI";*/
     font-family: Arial, Tahoma,Calibri,Verdana,Geneva,sans-serif;
     color: #3b3b3b;
     font-size: 14px;
@@ -541,4 +564,32 @@ div.topic-permissions-control ul > li > a {
         font-size: 16px;
     }
 
+}
+/*pagination*/
+.pagination-sm > li > a, .pagination-sm > li > span {
+    padding: 5px 10px;
+    font-size: 11px;
+    line-height: 1.5;
+    margin: 0 1px;
+    border-radius: 5px;
+}
+
+/*post*/
+.postadmin {
+    float: none;
+    width: 0px
+}
+.postdetails {
+    margin-right: 0px;
+}
+
+a.post-reply-quote {
+    padding: 0px 15px;
+    border-radius: 50%;
+}
+a.post-reply-quote .icon {
+    color: #AAAAAA;
+}
+a.post-reply-quote:hover {
+    background: rgba(0,0,0,0.1);
 }

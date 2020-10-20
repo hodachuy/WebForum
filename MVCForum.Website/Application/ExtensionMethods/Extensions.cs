@@ -125,8 +125,9 @@
 
             var urlHelper = new UrlHelper(helper.ViewContext.RequestContext, helper.RouteCollection);
             var containerdiv = new TagBuilder("nav");
+            containerdiv.AddCssClass("pagination-post text-right");
             var container = new TagBuilder("ul");
-            container.AddCssClass("pagination");
+            container.AddCssClass("pagination pagination-sm");
             var actionName = !string.IsNullOrWhiteSpace(actionOveride)
                 ? actionOveride
                 : helper.ViewContext.RouteData.GetRequiredString("action");

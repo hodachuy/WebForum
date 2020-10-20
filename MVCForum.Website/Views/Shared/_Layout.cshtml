@@ -34,6 +34,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css" />
     <!--prism-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.min.css"/>
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
 
     @Html.Partial("_JavaScript", theme)
     @RenderSection("Header", false)
@@ -112,19 +114,19 @@
                     <ul class="nav text-center navbar-nav navbar-right">
                         <li><a class="nav-menu-item" href="http://lawcoviet.vn">TRANG CHỦ<span></span></a></li>
                         <li><a class="nav-menu-item" href="http://home.lawcoviet.vn/dich-vu-cong.html">DỊCH VỤ CÔNG<span></span></a></li>
-                        <li><a class="nav-menu-item" href="/http://home.lawcoviet.vn/van-ban-phap-luat.html">VĂN BẢN VÀ CHỈ DẪN<span></span></a></li>
+                        <li><a class="nav-menu-item" href="http://home.lawcoviet.vn/van-ban-phap-luat.html">VĂN BẢN VÀ CHỈ DẪN<span></span></a></li>
                         <li><a class="nav-menu-item" href="http://home.lawcoviet.vn/cau-hoi-phap-luat.html">HỎI ĐÁP LUẬT<span></span></a></li>
                         <li class="active"><a class="nav-menu-item" href="#">TRAO ĐỔI<span></span></a></li>
                         @if (!User.Identity.IsAuthenticated)
                         {
                             if (Html.Settings().SuspendRegistration != true)
                             {
-            <li><a class="nav-menu-item auto-register" href="@Url.Action("Register", "Members")">@Html.LanguageString("Layout.Nav.Register")</a></li> }
-            <li><a class="nav-menu-item auto-logon" href="@Url.Action("LogOn", "Members")">@Html.LanguageString("Layout.Nav.Logon")</a></li>}
+                                <li><a class="nav-menu-item auto-register" href="@Url.Action("Register", "Members")">@Html.LanguageString("Layout.Nav.Register")</a></li> }
+                                <li><a class="nav-menu-item auto-logon" href="@Url.Action("LogOn", "Members")">@Html.LanguageString("Layout.Nav.Logon")</a></li>}
                         @if (User.Identity.IsAuthenticated)
                         {
-
-            @Html.Action("SideAdminPanel", "Members", new { isDropDown = true })}
+                            @Html.Action("SideAdminPanel", "Members", new { isDropDown = true })
+                        }
                     </ul>
                 </div>
             </div>
