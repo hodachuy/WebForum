@@ -448,7 +448,7 @@
             }
 
             var member = memberQuery.FirstOrDefault(name => name.UserName.Equals(username, StringComparison.CurrentCultureIgnoreCase));
-
+            //member.TotalPosts = member.Posts.Count();
             // Do a check to log out the user if they are logged in and have been deleted
             if (member == null && HttpContext.Current.User.Identity.Name == username)
             {

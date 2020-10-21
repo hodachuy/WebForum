@@ -87,6 +87,25 @@ h3 {
     margin: 0;
 }
 
+.rowcreater-post {
+    text-align: left;
+}
+.rowcreater-post img {
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+    max-width: 50px;
+}
+
+    .rowcreater-post span.label {
+        font-weight: normal;
+        padding: .2em .4em .2em;
+        margin: 5px 0px 0 0px;
+        display: block;
+        z-index: 5;
+        font-size: 9px;
+        width: 50%;
+    }
+
 .topicrow .rowdetails h3 a, .topicrow .rowdetails h3 a:visited {
     font-size: 13px;
     color: var(--main-link-color);
@@ -575,6 +594,13 @@ div.topic-permissions-control ul > li > a {
 }
 
 /*post*/
+.post {
+    border: 1px #e6e6e6 solid;
+    margin: 15px 0 15px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1);
+}
 .postadmin {
     float: none;
     width: 0px
@@ -590,6 +616,14 @@ a.post-reply-quote {
 a.post-reply-quote .icon {
     color: #AAAAAA;
 }
-a.post-reply-quote:hover {
-    background: rgba(0,0,0,0.1);
+
+@media (max-width: 600px) {
+    .postsocial ul{
+        padding:0px;
+    }
+    .postsocial ul li {
+        padding: 0px;
+        width: auto;
+        font-size:10.5px;
+    }
 }
