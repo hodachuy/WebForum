@@ -589,6 +589,30 @@
             var loggedOnReadOnlyUser = User.GetMembershipUser(MembershipService);
             var loggedOnUsersRole = loggedOnReadOnlyUser.GetRole(RoleService);
 
+            // If there is a quote querystring
+            var quote = Request["quote"];
+            if (!String.IsNullOrEmpty(quote) && loggedOnReadOnlyUser == null)
+            {
+                TempData[Constants.MessageViewBagName] = new GenericMessageViewModel
+                {
+                    Message = LocalizationService.GetResourceString("Errors.NoPermission"),
+                    MessageType = GenericMessages.danger
+                };
+                return RedirectToAction("Register", "Members");
+            }
+
+            // If there is a reply querystring
+            var reply = Request["reply"];
+            if (!String.IsNullOrEmpty(reply) && loggedOnReadOnlyUser == null)
+            {
+                TempData[Constants.MessageViewBagName] = new GenericMessageViewModel
+                {
+                    Message = LocalizationService.GetResourceString("Errors.NoPermission"),
+                    MessageType = GenericMessages.danger
+                };
+                return RedirectToAction("Register", "Members");
+            }
+
             // Get the topic
             var topic = _topicService.GetTopicBySlug(slug);
 
@@ -650,7 +674,6 @@
                     settings, _notificationService, _pollService, votes, favourites, true);
 
                 // If there is a quote querystring
-                var quote = Request["quote"];
                 if (!string.IsNullOrWhiteSpace(quote))
                 {
                     try
@@ -667,7 +690,7 @@
                     }
                 }
 
-                var reply = Request["reply"];
+                // If there is a reply querystring
                 if (!string.IsNullOrWhiteSpace(reply))
                 {
                     try

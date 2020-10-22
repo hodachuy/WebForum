@@ -97,10 +97,8 @@
         {
             get { return Points?.Select(x => x.Points).Sum() ?? 0; }
         }
-        public int TotalPosts {
-            get { return Posts?.Where(x => x.User.Id == Id).Count() ?? 0; }
-        }
 
+        public int? TotalPosts { get; set; }
         public string NiceUrl => UrlTypes.GenerateUrl(UrlType.Member, Slug);
     }
 }

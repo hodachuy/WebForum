@@ -1030,5 +1030,24 @@
         {
             return Guid.NewGuid().ToString().ToLower().Replace("-", "");
         }
+
+        public void UpdateTotalPosts(Guid id, bool isAddPost)
+        {
+            var user = GetUser(id);
+
+            if (user == null)
+            {
+                throw new ApplicationException(_localizationService.GetResourceString("Members.CantUnlock"));
+            }
+            user.TotalPosts = user.TotalPosts == null ? 0 : user.TotalPosts;
+            if (isAddPost)
+            {
+                user.TotalPosts++;
+            }
+            else
+            {
+                user.TotalPosts = user.TotalPosts > 0 ? user.TotalPosts-- : 0;
+            }
+        }
     }
 }

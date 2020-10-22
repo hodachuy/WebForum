@@ -34,10 +34,10 @@
             </span>
         }
         <p class="font-size-10">
-            Ngày tham gia: @Model.Post.User.CreateDate.ToString("dd-MM-yyyy")
+            Tham gia: @Model.Post.User.CreateDate.ToLocalTime().ToString("dd-MM-yy")
         </p>
         <p class="font-size-10">
-            Bài viết: @Model.Post.User.TotalPosts
+            Bài viết: 
         </p>
     </div>
     <div class="col-md-10 clearfix rowdetail-post">
@@ -49,7 +49,7 @@
                                 <p class="text-muted">Re: <a class="text-muted" href="@Model.ParentTopic.NiceUrl">@Model.ParentTopic.Name</a></p>}
                     <a class="postmember-@postId" href="@Html.Raw(Model.Post.User.NiceUrl)">@Html.Raw(Model.Post.User.UserName)</a>
                     @Html.LanguageString("Post.PostedThis")
-                    @DatesUi.GetPrettyDate(Model.Post.DateCreated.ToString()), @Model.Post.DateCreated.ToString("dd-MM-yyyy, hh:mm tt", CultureInfo.InvariantCulture)
+                    @DatesUi.GetPrettyDate(Model.Post.DateCreated.ToLocalTime().ToString()), @Model.Post.DateCreated.ToLocalTime().ToString("dd-MM-yyyy, hh:mm tt", CultureInfo.InvariantCulture)
                     @if (isAdmin && !string.IsNullOrEmpty(Model.Post.IpAddress))
                     {
                 <text> - @Model.Post.IpAddress</text>}

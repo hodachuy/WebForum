@@ -17,7 +17,7 @@
 @if (!string.IsNullOrEmpty(genericMessage.Message))
 {
     <script type="text/javascript"> $(function () { $('div.alert').delay(@delayTime).fadeOut(); });</script>
-    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 alert alert-@genericMessage.MessageType.ToString()" role="alert">
+    <div class="alert alert-@genericMessage.MessageType.ToString()" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         @Html.Raw(genericMessage.Message)
     </div>

@@ -54,7 +54,7 @@ a[aria-disabled="true"] {
 :root {
     --main-bg-color: #fb8153; /*blue #2470bb*/
     --main-bg-second-color: #ecf0f1; /*#ecf0f1;*/
-    --main-link-color: #00418c;
+    --main-link-color: #2470bb;
     --main-text-color: #3b3b3b;
     --main-bg-hover-color: #fa6f3a;
     --main-boder-color: #dedede;
@@ -107,18 +107,21 @@ h3 {
     }
 
 .topicrow .rowdetails h3 a, .topicrow .rowdetails h3 a:visited {
-    font-size: 13px;
+    font-size: 16px;
     color: var(--main-link-color);
-    font-weight: 600;
+    font-weight: 500;
     margin-top: 7px;
     line-height: 0px;
     text-decoration: none;
 }
+    .topicrow .rowdetails h3 a:visited:hover {
+        color: var(--main-link-color);
+    }
 
-.topicrow {
-    padding: 10px 0px 10px 0px;
-    border-bottom: 1px solid var(--main-boder-color);
-}
+    .topicrow {
+        padding: 10px 0px 10px 0px;
+        border-bottom: 1px solid var(--main-boder-color);
+    }
 
 .btn-mvc-large, .btn-mvc-large:visited {
     padding: 9px 25px;
@@ -147,6 +150,20 @@ h3 {
     margin: 2px 0px 0 0px;
     display: block;
     z-index: 5;
+}
+
+.hottopics-box ul li a, .hottopics-box ul li a:visited {
+    color: var(--main-link-color);
+    display: inline-block;
+    width: 90%;
+    white-space: normal;
+    vertical-align: top;
+}
+
+.hottopics-box ul li img {
+    display: inline-block;
+    margin: 2px 2px 5px 0;
+    border-radius: 50%;
 }
 
 ul.postadminlist .btn-mvc i {
@@ -290,9 +307,9 @@ blockquote {
     }
 
         .categoryrow h3 a.category-title, .categoryrow h3 a.category-title:visited {
-            color: #00418c;
-            font-weight: bold;
-            font-size: 13px;
+            color: var(--main-link-color);
+            font-weight: 500;
+            font-size: 16px;
         }
 
     .categoryrow .categoryrow-image img {
@@ -441,11 +458,11 @@ blockquote {
 }
 
 .status.answered {
-    border-color: var(--main-bg-color);
+    border-color: #45a163;
 }
 
     .status.answered, .status.answered .mini-counts, .status.answered strong {
-        color: var(--main-bg-color);
+        color: #45a163;
     }
 
 .answered, .answered-accepted {

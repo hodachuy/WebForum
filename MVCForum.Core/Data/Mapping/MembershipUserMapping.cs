@@ -61,7 +61,7 @@
             Property(x => x.Longitude).IsOptional().HasMaxLength(40);
             Property(x => x.LastActivityDate).IsOptional();
             Property(x => x.HasAgreedToTermsAndConditions).IsOptional();
-
+            Property(x => x.TotalPosts).IsOptional();
             Ignore(x => x.TotalPoints);
             Ignore(x => x.NiceUrl);
 

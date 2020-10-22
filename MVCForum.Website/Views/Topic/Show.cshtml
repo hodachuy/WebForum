@@ -31,7 +31,8 @@
     //TempData[Constants.DefaultCategoryViewBagName] = Model.Topic.Category.Id;
     var qs = Request.QueryString[Constants.PostOrderBy] ?? string.Empty;
 
-    int postIdx = 0;
+    // Set index to every line the post
+    int postIdx = 1 + (Convert.ToInt32(Model.PageIndex) == 1 ? 0 : (Html.Settings().PostsPerPage * (Convert.ToInt32(Model.PageIndex) - 1))) ;
 }
 @section SocialMeta {
     <meta property="og:title" content="@ViewBag.Title" />
@@ -119,10 +120,10 @@
         @if (Model.TotalCount > 0)
         {
             <div class="row topicstarterpostbeginpostsheading">
-                <div class="col-md-7 hidden-xs topicstarterpostcomments">
+                <div class="col-md-7 col-xs-3 topicstarterpostcomments">
                     @(Model.TotalCount) @Html.LanguageString("Topic.CommentsDetails")
                 </div>
-                <div class="col-md-5 topicpostorderfilter font-size-12">
+                <div class="col-md-5 col-xs-9 topicpostorderfilter font-size-12">
                     @if ((Model.TotalCount - 1) > 0)
                     {
                         <text> @Html.LanguageString("PostFilter.OrderBy")
@@ -137,9 +138,9 @@
     </div>
     @foreach (var post in Model.Posts)
     {
-        postIdx ++;
         post.Idx = postIdx;
         Html.RenderPartial("_Post", post);
+        postIdx++;
     }
 
     <!--Show Pagination button show more type ajax-->

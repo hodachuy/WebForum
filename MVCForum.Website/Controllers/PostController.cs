@@ -26,6 +26,7 @@
         private readonly IReportService _reportService;
         private readonly ITopicService _topicService;
         private readonly IVoteService _voteService;
+        private readonly IMembershipService _membershipService;
 
         public PostController(ILoggingService loggingService, IMembershipService membershipService,
             ILocalizationService localizationService, IRoleService roleService, ITopicService topicService,
@@ -41,6 +42,7 @@
             _reportService = reportService;
             _voteService = voteService;
             _postEditService = postEditService;
+            _membershipService = membershipService;
         }
 
         [HttpPost]
@@ -66,6 +68,8 @@
                 throw new Exception(postPipelineResult.ProcessLog.FirstOrDefault());
             }
 
+            _membershipService.UpdateTotalPosts(postPipelineResult.EntityToProcess.User.Id, true);
+            Context.SaveChanges();
             //Check for moderation
             if (postPipelineResult.EntityToProcess.Pending == true)
             {
@@ -111,6 +115,10 @@
                     {
                         // Delete entire topic
                         var result = await _topicService.Delete(topic);
+
+                        // Count down total posts User
+                        _membershipService.UpdateTotalPosts(topic.User.Id, false);
+
                         if (!result.Successful)
                         {
                             TempData[Constants.MessageViewBagName] = new GenericMessageViewModel
