@@ -68,8 +68,10 @@
                 throw new Exception(postPipelineResult.ProcessLog.FirstOrDefault());
             }
 
-            _membershipService.UpdateTotalPosts(postPipelineResult.EntityToProcess.User.Id, true);
+            // Count up total posts User
+            var user = _membershipService.UpdateTotalPosts(postPipelineResult.EntityToProcess.User.Id, true);
             Context.SaveChanges();
+
             //Check for moderation
             if (postPipelineResult.EntityToProcess.Pending == true)
             {
@@ -110,14 +112,14 @@
             {
                 try
                 {
+                    // Count down total posts User
+                    var user = _membershipService.UpdateTotalPosts(post.User.Id, false);
+
                     // Delete post / topic
                     if (post.IsTopicStarter)
                     {
                         // Delete entire topic
                         var result = await _topicService.Delete(topic);
-
-                        // Count down total posts User
-                        _membershipService.UpdateTotalPosts(topic.User.Id, false);
 
                         if (!result.Successful)
                         {

@@ -19,9 +19,14 @@
 .m-0 {
     margin: 0;
 }
-
+.m-y-5{
+    margin:5px 0;
+}
 .ml-10 {
     margin-left: 10px;
+}
+.m-y-3{
+    margin:3px 0;
 }
 pl-0{
     padding-left:0;
@@ -143,6 +148,9 @@ h3 {
     width: 100%;
     height: 2.5rem;
 }*/
+.permalink{
+    color:#777 !important;
+}
 
 .rowcreater span.label {
     font-weight: normal;

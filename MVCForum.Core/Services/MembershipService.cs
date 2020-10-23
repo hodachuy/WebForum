@@ -1031,7 +1031,7 @@
             return Guid.NewGuid().ToString().ToLower().Replace("-", "");
         }
 
-        public void UpdateTotalPosts(Guid id, bool isAddPost)
+        public MembershipUser UpdateTotalPosts(Guid id, bool isAddPost)
         {
             var user = GetUser(id);
 
@@ -1046,8 +1046,9 @@
             }
             else
             {
-                user.TotalPosts = user.TotalPosts > 0 ? user.TotalPosts-- : 0;
+                user.TotalPosts = user.TotalPosts > 0 ? Convert.ToInt32(user.TotalPosts) - 1 : 0;
             }
+            return user;
         }
     }
 }

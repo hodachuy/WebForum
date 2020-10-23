@@ -28,7 +28,7 @@
         bool ChangePassword(MembershipUser user, string oldPassword, string newPassword);
         bool ResetPassword(MembershipUser user, string newPassword);
         void UnlockUser(string username, bool resetPasswordAttempts);
-        void UpdateTotalPosts(Guid id, bool isAddPost);
+        MembershipUser UpdateTotalPosts(Guid id, bool isAddPost);
         MembershipUser CreateEmptyUser();
         Task<IPipelineProcess<MembershipUser>> CreateUser(MembershipUser newUser, LoginType loginType);
         Task<IPipelineProcess<MembershipUser>> EditUser(MembershipUser userToEdit, IPrincipal loggedInUser, HttpPostedFileBase image);

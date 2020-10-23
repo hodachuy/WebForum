@@ -33,11 +33,11 @@
                 @Html.Lang("Post.MemberIsOnline")
             </span>
         }
-        <p class="font-size-10">
+        <p class="font-size-11 m-y-5">
             Tham gia: @Model.Post.User.CreateDate.ToLocalTime().ToString("dd-MM-yy")
         </p>
-        <p class="font-size-10">
-            Bài viết: 
+        <p class="font-size-11 m-y-5">
+            Bài viết: @Model.Post.User.TotalPosts
         </p>
     </div>
     <div class="col-md-10 clearfix rowdetail-post">
@@ -45,8 +45,10 @@
             <div class="row postbodytop">
                 <div class="col-md-10 col-xs-10 pd-unset">
                     @if (Model.Post.InReplyTo == null && Model.Post.IsTopicStarter == false)
-                    {<!--Show Topic Name-->
-                                <p class="text-muted">Re: <a class="text-muted" href="@Model.ParentTopic.NiceUrl">@Model.ParentTopic.Name</a></p>}
+                    {
+                        <!--Show Topic Name-->
+                        <p class="text-muted m-y-3">Re: <a class="text-muted" href="@Model.ParentTopic.NiceUrl">@Model.ParentTopic.Name</a></p>
+                    }
                     <a class="postmember-@postId" href="@Html.Raw(Model.Post.User.NiceUrl)">@Html.Raw(Model.Post.User.UserName)</a>
                     @Html.LanguageString("Post.PostedThis")
                     @DatesUi.GetPrettyDate(Model.Post.DateCreated.ToLocalTime().ToString()), @Model.Post.DateCreated.ToLocalTime().ToString("dd-MM-yyyy, hh:mm tt", CultureInfo.InvariantCulture)
