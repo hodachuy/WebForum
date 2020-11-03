@@ -35,7 +35,7 @@ namespace MvcForum.Web
             UnityHelper.InitialiseUnityContainer();
 
             // Make DB update to latest migration
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<MvcForumContext, Configuration>());
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<MvcForumContext, Configuration>());
 
             // Set the rest of the Ioc
             UnityHelper.BuildUnityContainer();
@@ -44,20 +44,20 @@ namespace MvcForum.Web
             var unityContainer = UnityHelper.Container;
 
             // Set Hangfire to use SQL Server and the connection string
-            GlobalConfiguration.Configuration.UseSqlServerStorage(ForumConfiguration.Instance.MvcForumContext);
+            //GlobalConfiguration.Configuration.UseSqlServerStorage(ForumConfiguration.Instance.MvcForumContext);
 
             // Make hangfire use unity container
-            GlobalConfiguration.Configuration.UseUnityActivator(unityContainer);
+            //GlobalConfiguration.Configuration.UseUnityActivator(unityContainer);
 
             // Add Hangfire
             // TODO - Do I need this dashboard?
             //app.UseHangfireDashboard();
 
-            app.UseHangfireServer();
+            //app.UseHangfireServer();
 
             // Get services needed
             var mvcForumContext = unityContainer.Resolve<IMvcForumContext>();
-            var badgeService = unityContainer.Resolve<IBadgeService>();
+            //var badgeService = unityContainer.Resolve<IBadgeService>();
             var loggingService = unityContainer.Resolve<ILoggingService>();
             var assemblyProvider = unityContainer.Resolve<IAssemblyProvider>();
 
@@ -74,22 +74,22 @@ namespace MvcForum.Web
             ImplementationManager.SetAssemblies(assemblies);
 
             // Do the badge processing
-            try
-            {
-                badgeService.SyncBadges(assemblies);
-                mvcForumContext.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                loggingService.Error($"Error processing badge classes: {ex.Message}");
-            }
+            //try
+            //{
+            //    badgeService.SyncBadges(assemblies);
+            //    mvcForumContext.SaveChanges();
+            //}
+            //catch (Exception ex)
+            //{
+            //    loggingService.Error($"Error processing badge classes: {ex.Message}");
+            //}
 
             var theme = "Metro";
-            var settings = mvcForumContext.Setting.FirstOrDefault();
-            if (settings != null)
-            {
-                theme = settings.Theme;
-            }
+            //var settings = mvcForumContext.Setting.FirstOrDefault();
+            //if (settings != null)
+            //{
+            //    theme = settings.Theme;
+            //}
 
             // Set the view engine
             ViewEngines.Engines.Clear();
@@ -99,7 +99,7 @@ namespace MvcForum.Web
             EventManager.Instance.Initialize(loggingService, assemblies);
 
             // Finally trigger any Cron jobs
-            RecurringJob.AddOrUpdate<RecurringJobService>(x => x.SendMarkAsSolutionReminders(), Cron.HourInterval(6), queue: "solutionreminders");            
+            //RecurringJob.AddOrUpdate<RecurringJobService>(x => x.SendMarkAsSolutionReminders(), Cron.HourInterval(6), queue: "solutionreminders");            
         }
     }
 }

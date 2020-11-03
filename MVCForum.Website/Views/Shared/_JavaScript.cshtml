@@ -3,7 +3,8 @@
     var app_base = '@Url.Content("~/")';
     var largeSpinnerBlockImage = '@Url.Content("~/content/Images/ajaxloader-large.gif")';
 </script>
-@(Bundle.JavaScript()
+@(
+Bundle.JavaScript()
     .Add("~/Scripts/jquery-3.1.0.min.js")
     .Add("~/Scripts/jquery-ui.min.js")
     .Add("~/Scripts/jquery.unobtrusive-ajax.js")
